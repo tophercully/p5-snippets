@@ -135,18 +135,17 @@ export const glslSnippets = [
         }`,
           tags:'range map, interpolate, scale, math'
     },
-    
-  //   {
-  //       name:'Deterministic Random',
-  //       code: `
-  //       //requires a seed uniform from js
-  //       const float PHI=1.61803398875;
-  //       float random(in vec2 xy){
-  //         // golden noise, works better on less precise hardware, but adds odd artifacts
-  //         return fract(tan(distance(xy*PHI,xy)*fract(randseed/100.+10.))*xy.x);
-  // }`,
-  //         tags:'random, hash, deterministic, fractal, seed, golden noise'
-  //   },
+    {
+        name:'Deterministic Random',
+        code: `
+        //requires a seed uniform from js
+        const float PHI=1.61803398875;
+        float random(in vec2 xy){
+          // golden noise, works better on less precise hardware, but adds odd artifacts
+          return fract(tan(distance(xy*PHI,xy)*fract(randseed/100.+10.))*xy.x);
+  }`,
+          tags:'random, hash, deterministic, fractal, seed, golden noise'
+    },
     
 ]
 
