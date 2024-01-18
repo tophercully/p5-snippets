@@ -171,15 +171,6 @@ export const p5Snippets = [
           tags:'range map, interpolate, scale, math'
     },
     {
-        name:'Map Range',
-        code: `
-        //works just like p5's map() but works globally
-        function map_range(value, low1, high1, low2, high2) {
-          return low2 + ((high2 - low2) * (value - low1)) / (high1 - low1);
-        }`,
-          tags:'range map, interpolate, scale, math'
-    },
-    {
       name:'Geometry Class Quickstart',
       code: `
       class Geometry{
