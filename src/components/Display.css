@@ -1,0 +1,75 @@
+.display{
+    height: 70vh;
+    width: 70%;
+
+    min-width: 50vh;
+
+    border: 1px solid black;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    overflow: auto;
+
+    background-color: #252525;
+}
+
+.display-code{
+    justify-self: center;
+    align-self: center;
+    text-align: left;
+    padding-left: 4vh;
+}
+
+.copy-button{
+    align-self: flex-start;
+
+    margin: 1vh;
+    border: 1px solid black;
+    border-radius: 0;
+    background-color: #f5f5f5;
+
+    padding: 0;
+
+    width: 50px;
+    aspect-ratio: 1/1;
+
+    transition: 500ms ease-in-out;
+}
+
+.copy-button:hover{
+    filter:invert(100%)
+}
+
+.copy-icon{
+    width: 20px;
+    height: 20px;
+    transform: translateY(10%);
+}
+
+.hljs{
+    background: none;
+}
+
+pre code.hljs {
+    background-color: none;
+    background: none;
+}
+
+.javascript{
+    text-align: left;
+}
+.glsl{
+    text-align: left;
+}
+
+.error-display{
+    position: fixed;
+    left:50%;
+    color:#f5f5f5;
+    justify-self: center;
+    align-self: center;
+}
+

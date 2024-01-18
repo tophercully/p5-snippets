@@ -1,0 +1,164 @@
+export const p5Snippets = [
+    {
+        name:'Find Vector Distance',
+        code: `
+        function diff (num1, num2) {
+            if (num1 > num2) {
+              return (num1 - num2);
+            } else {
+              return (num2 - num1);
+            }
+          };
+          
+          function distBetween (x1, y1, x2, y2) {
+            var deltaX = diff(x1, x2);
+            var deltaY = diff(y1, y2);
+            var distan = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
+            return (distan);
+          };`,
+          tags:'distance, vector, difference, geometry, trigonometry'
+    },
+    {
+        name:'Angle Between Vectors',
+        code: `
+        function angBetween(x1, y1, x2, y2) {
+            return Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+          }`,
+          tags: 'angle, atan'
+    },
+    {
+        name:'Point From Angle',
+        code: `
+        function ptFromAng(xPosition, yPosition, ang, dis) {
+            var xMod = cos(ang)*dis
+            var yMod = sin(ang)*dis
+          
+            return {
+                x:(xPosition+xMod), 
+                y:(yPosition+yMod)
+            }
+          }`,
+          tags:'polar, distance, angle, geometry, trigonometry'
+    },
+    {
+        name:'Positive or Negative',
+        code: `
+        function plusOrMin(x) {
+            var chance = fxrand() 
+            if(chance < 0.5) {
+              mod = 1
+            } else {
+              mod = -1
+            }
+
+            return x*mod
+
+          }`,
+          tags:'plus, minus, flip, absolute, value'
+    },
+    {
+        name:'Point Between Vectors',
+        code: `
+        function ptBetween(xA, yA, xB, yB, amt) {
+            var xBetween = map(amt, 0, 1, xA, xB)
+            var yBetween = map(amt, 0, 1, yA, yB)
+            var betweenPos = createVector(xBetween, yBetween)
+            return betweenPos
+          }`,
+          tags:'map, range, interpolate, interpolation, geometry, trigonometry'
+    },
+    {
+        name:'Shuffle Array',
+        code: `
+        function shuff(array) {
+            let currentIndex = array.length,
+              randomIndex;
+          
+            while (currentIndex != 0) {
+              randomIndex = Math.floor(fxrand() * currentIndex);
+              currentIndex--;
+              [array[currentIndex], array[randomIndex]] = [
+                array[randomIndex],
+                array[currentIndex],
+              ];
+            }
+          
+            return array;
+          }`,
+          tags:'shuffle, sort, random, scramble, list, geometry, trigonometry'
+    },
+    {
+        name:'Sort By Property',
+        code: `
+        function dynamicSort(property) {
+            var sortOrder = 1;
+            if(property[0] === "-") {
+                sortOrder = -1;
+                property = property.substr(1);
+            }
+            return function (a,b) {
+                /* next line works with strings and numbers, 
+                 * and you may want to customize it to your needs
+                 */
+                var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+                return result * sortOrder;
+            }
+          }`,
+          tags:'property, attribute, array, '
+    },
+    {
+        name:'Grid',
+        code: `
+        function grid() {
+            cols = 10
+            rows = 10
+            cellW = width/cols
+            cellH = height/rows 
+            for(let y = 0; y < rows; y++) {
+              for(let x = 0; x < cols; x++) {
+                rect(x*cellW+cellW/2, y*cellH+cellH/2)
+              }
+            }
+          }`,
+          tags:'grid, mesh, matrix'
+    },
+    {
+        name:'Circle with Polar Noise',
+        code: `
+        function blob(x, y, wid, hei) {
+            var phase = fxrand() * 10000000000
+            var ns = 0.01
+            var minIrreg = 0.25
+            var rot = randomVal(0, 360)
+            
+            push()
+            translate(x, y)
+            beginShape()
+            for(let i = rot; i < rot+360; i+=360/8) {
+              var xoff = map(cos(i), -1, 1, 0, 10)
+              var yoff = map(sin(i), -1, 1, 0, 10)
+              var n = noise(xoff*ns, yoff*ns, phase)
+              var blobW = map(n, 0, 1, wid*minIrreg, wid*0.5)
+              var blobH = map(n, 0, 1, hei*minIrreg, hei*0.5)
+
+              var xC = cos(i)*blobW
+              var yC = sin(i)*blobH
+          
+              vertex(xC, yC)
+            }
+            endShape(CLOSE)
+            pop()
+          }`,
+          tags:'geometry, trigonometry, polar shape, noise'
+    },
+    {
+        name:'test9',
+        code: 'testString9',
+        tags:'test'
+    },
+    {
+        name:'test10',
+        code: 'testString10',
+        tags:'test'
+    }
+]
