@@ -4,6 +4,8 @@ import { Selections } from './components/Selections'
 import { Display } from './components/Display'
 import { Nav } from './components/Nav'
 
+import { Analytics } from '@vercel/analytics/react';
+
 function App() {
   const [selection, setSelection] = useState(0)
   const [page, setPage] = useState(0)
@@ -12,6 +14,7 @@ function App() {
   return (
     <>
     <div className='app-container'>
+      
       <Nav page={page} setPage={setPage} setSelection={setSelection}/>
       <div className='main-body'>
         <Selections selection={selection} setSelection={setSelection} page={page}/>
@@ -20,6 +23,7 @@ function App() {
       </div>
       
     </div>
+    <Analytics />
     </>
   )
 }
