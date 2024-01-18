@@ -8,6 +8,7 @@ import glsl from 'highlight.js/lib/languages/glsl';
 import './Display.css'
 import "highlight.js/styles/monokai.css";
 
+
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { monokaiSublime, monokai } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
@@ -72,8 +73,7 @@ export const Display = (props) => {
         return(
             <div className="display">
                 <br></br>
-                    {/* <SyntaxHighlighter className={language} style={monokaiSublime} >{array[selection].code}</SyntaxHighlighter> */}
-                    <CodeBlock language={language} code={array[selection].code}/>
+                <CodeBlock language={language} code={array[selection].code}/>
                 <button className="copy-button" onClick={copyCode}><img className="copy-icon" src="copy.svg"></img></button>
             </div>
 
@@ -81,7 +81,7 @@ export const Display = (props) => {
     } else if(array[selection] && page == 2) {
         return(
             <>
-            <div className="display" style={{
+            <div className="display" key={page} style={{
                 flexDirection:'column'
             }}>
                 <button 

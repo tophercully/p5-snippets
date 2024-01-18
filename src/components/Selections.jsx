@@ -22,6 +22,7 @@ export const Selections = (props) => {
     } else {
         //colors
         array = colorPals
+        placeholder = "Try 'warm', 'purple', 'monochrome'"
     }
 
     function handleClick(e, index) {

@@ -13,8 +13,8 @@ export const p5Snippets = [
           function distBetween (x1, y1, x2, y2) {
             var deltaX = diff(x1, x2);
             var deltaY = diff(y1, y2);
-            var distan = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
-            return (distan);
+            var dstnc = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
+            return (dstnc);
           };`,
           tags:'distance, vector, difference, geometry, trigonometry'
     },
@@ -44,7 +44,7 @@ export const p5Snippets = [
         name:'Positive or Negative',
         code: `
         function plusOrMin(x) {
-            var chance = fxrand() 
+            var chance = Math.random() 
             if(chance < 0.5) {
               mod = 1
             } else {
@@ -75,7 +75,7 @@ export const p5Snippets = [
               randomIndex;
           
             while (currentIndex != 0) {
-              randomIndex = Math.floor(fxrand() * currentIndex);
+              randomIndex = Math.floor(Math.random() * currentIndex);
               currentIndex--;
               [array[currentIndex], array[randomIndex]] = [
                 array[randomIndex],
@@ -126,7 +126,7 @@ export const p5Snippets = [
         name:'Circle with Polar Noise',
         code: `
         function blob(x, y, wid, hei) {
-            var phase = fxrand() * 10000000000
+            var phase = Math.random() * 10000000000
             var ns = 0.01
             var minIrreg = 0.25
             var rot = randomVal(0, 360)
@@ -152,13 +152,57 @@ export const p5Snippets = [
           tags:'geometry, trigonometry, polar shape, noise'
     },
     {
-        name:'test9',
-        code: 'testString9',
-        tags:'test'
+        name:'Random Integer',
+        code: `
+        function randomInt(min, max) {
+          min = Math.ceil(min);
+          max = Math.floor(max);
+          return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is exclusive and the minimum is inclusive
+        }`,
+          tags:'random, limit, round, floor, ceil'
     },
     {
-        name:'test10',
-        code: 'testString10',
-        tags:'test'
-    }
+        name:'Map Range',
+        code: `
+        //works just like p5's map() but works globally
+        function map_range(value, low1, high1, low2, high2) {
+          return low2 + ((high2 - low2) * (value - low1)) / (high1 - low1);
+        }`,
+          tags:'range map, interpolate, scale, math'
+    },
+    {
+        name:'Map Range',
+        code: `
+        //works just like p5's map() but works globally
+        function map_range(value, low1, high1, low2, high2) {
+          return low2 + ((high2 - low2) * (value - low1)) / (high1 - low1);
+        }`,
+          tags:'range map, interpolate, scale, math'
+    },
+    {
+      name:'Geometry Class Quickstart',
+      code: `
+      class Geometry{
+        constructor(x, y, wid, hei) {
+          this.pos = {
+            x:x,
+            y:y
+          }
+          this.size = {
+            width:wid,
+            height:hei
+          }
+      
+        }
+      
+        show() {
+          rect(this.pos.x, this.pos.y, this.size.width, this.size.height)
+        }
+      
+        update() {
+          this.pos.x += 1
+        }
+      }`,
+        tags:'geometry, shape, class, custom, object'
+  },
 ]

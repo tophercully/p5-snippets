@@ -127,5 +127,28 @@ export const glslSnippets = [
         vec3 color = colVal.rgb;`,
           tags:'color, lut, lookup table, look up, value map'
     },
+    {
+        name:'Map Range',
+        code: `
+        float map(float value, float inMin, float inMax, float outMin, float outMax) {
+          return outMin + (outMax - outMin) * (value - inMin) / (inMax - inMin);
+        }`,
+          tags:'range map, interpolate, scale, math'
+    },
+    
+  //   {
+  //       name:'Deterministic Random',
+  //       code: `
+  //       //requires a seed uniform from js
+  //       const float PHI=1.61803398875;
+  //       float random(in vec2 xy){
+  //         // golden noise, works better on less precise hardware, but adds odd artifacts
+  //         return fract(tan(distance(xy*PHI,xy)*fract(randseed/100.+10.))*xy.x);
+  // }`,
+  //         tags:'random, hash, deterministic, fractal, seed, golden noise'
+  //   },
     
 ]
+
+
+
