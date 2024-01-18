@@ -107,7 +107,7 @@ export const Selections = (props) => {
                                         const col = array[index].code[indexB]
                                         try{
                                             const wid = 100/array[index].code.length
-                                            return <div className="pal-block" key={indexB} style={{backgroundColor: col, width:'1vw'}}></div>
+                                            return <div className="pal-block" key={indexB} style={{backgroundColor: col, width:'2vw'}}></div>
                                         } finally {
                                             // const blocks = document.
                                         }

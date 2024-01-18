@@ -44,6 +44,8 @@
     border: 1px solid black;
 
     padding-left:1vh;
+    padding-top:1vh;
+    padding-bottom:1vh;
 
     display: flex;
     justify-content: space-between;
@@ -61,17 +63,8 @@
 
 
 .selection-name{
-    /* all:unset;
-    border: 1px solid black; */
     padding-right: 1vh;
     font-weight: 500;
-}
-.selection-name-fixed{
-    /* position: fixed; */
-    /* all:unset;
-    border: 1px solid black; */
-    font-weight: 500;
-    justify-self: flex-start;
 }
 
 .palette{
@@ -83,7 +76,7 @@
 .pal-block{
     all:unset;
     width: 3vh;
-    height:3vh;
+    height:5vh;
     /* border: 1px solid black; */
 }
 

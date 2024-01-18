@@ -1,0 +1,8 @@
+pre{
+    background: none;
+}
+
+pre code.hljs{
+    background-color: none;
+    background: none;
+}

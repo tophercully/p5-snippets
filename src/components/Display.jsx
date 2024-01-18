@@ -7,7 +7,13 @@ import javascript from 'highlight.js/lib/languages/javascript';
 import glsl from 'highlight.js/lib/languages/glsl';
 import './Display.css'
 import "highlight.js/styles/monokai.css";
-import ReactHighlight from "react-highlight";
+
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { monokaiSublime, monokai } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+
+import { CodeBlock } from "./CodeBlock";
+
+
 
 
 export const Display = (props) => {
@@ -53,18 +59,47 @@ export const Display = (props) => {
             var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
             return result * sortOrder;
         }
-      }
-
+    }
+    
+    function Palette() {
+        return(
+            <img src="array[selection].img" className="example-image"></img>
+        )
+    }
     
 
-    if(array[selection]) {
+    if(array[selection] && page != 2) {
         return(
             <div className="display">
                 <br></br>
-                <ReactHighlight className={language}>{array[selection].code}</ReactHighlight>
+                    {/* <SyntaxHighlighter className={language} style={monokaiSublime} >{array[selection].code}</SyntaxHighlighter> */}
+                    <CodeBlock language={language} code={array[selection].code}/>
                 <button className="copy-button" onClick={copyCode}><img className="copy-icon" src="copy.svg"></img></button>
             </div>
 
+        )
+    } else if(array[selection] && page == 2) {
+        return(
+            <>
+            <div className="display" style={{
+                flexDirection:'column'
+            }}>
+                <button 
+                    className="copy-button-B" 
+                    onClick={copyCode}>
+                    <img 
+                    className="copy-icon" 
+                    src="copy.svg" 
+                    style={{
+                        alignSelf:'flex-end'
+                    }}></img>
+                </button>
+                {array[selection].code.map((a)=> {
+                    return <p className="javascript" style={{backgroundColor:a}}>{a}</p>
+                })}
+                <br></br>
+            </div>
+            </>
         )
     } else {
         return(
