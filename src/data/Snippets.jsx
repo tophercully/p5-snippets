@@ -4,10 +4,10 @@ export const snippets = {
             name:'Grid',
             code: `
             function grid() {
-                cols = 10
-                rows = 10
-                cellW = width/cols
-                cellH = height/rows 
+                var cols = 10
+                var rows = 10
+                var cellW = width/cols
+                var cellH = height/rows 
                 for(let y = 0; y < rows; y++) {
                   for(let x = 0; x < cols; x++) {
                     rect(x*cellW+cellW/2, y*cellH+cellH/2)
@@ -101,7 +101,7 @@ export const snippets = {
             push()
             translate(x, y)
             beginShape()
-            for(let i = 0; i < 360; i+=1) {
+            for(let i = -1; i < 360; i+=1) {
               var xPosition = cos(i)*radius
               var yPosition = sin(i)*radius
           
@@ -119,7 +119,7 @@ export const snippets = {
             push()
             translate(x, y)
             beginShape()
-            for(let i = 0; i < 360; i++) {
+            for(let i = -1; i < 360; i++) {
               var sinMod = map(sin(i*numPetals), -1, 1, 0, 1)
               var expo = 0.25
               var expoMod = map(pow(sinMod, expo), 0, pow(1, expo), 0.5, 1)
