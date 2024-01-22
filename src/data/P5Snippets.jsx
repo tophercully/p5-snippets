@@ -196,4 +196,66 @@ export const p5Snippets = [
       }`,
         tags:'geometry, shape, class, custom, object'
   },
+  {
+      name:'Polar Rectangle',
+      code: `
+      function squarePolar(squareAng) {
+        return min(1 / abs(cos(squareAng)), 1 / abs(sin(squareAng)))
+      }
+      
+      function polarRectangle(x, y, wid, hei) {
+        push()
+        translate(x, y)
+        beginShape()
+        for(let i = 0; i < 360; i++) {
+          var xPosition = cos(i)*wid*squarePolar(i)
+          var yPosition = sin(i)*hei*squarePolar(i)
+      
+          curveVertex(xPosition, yPosition)
+        }
+        endShape(CLOSE)
+        pop()
+      }`,
+        tags:'geometry, shape, rectangle, square, polar, conversion, p5'
+  },
+  {
+      name:'Polar Circle',
+      code: `
+      function polarCircle(x, y, radius) {
+        push()
+        translate(x, y)
+        beginShape()
+        for(let i = 0; i < 360; i+=1) {
+          var xPosition = cos(i)*radius
+          var yPosition = sin(i)*radius
+      
+          curveVertex(xPosition, yPosition)
+        }
+        endShape(CLOSE)
+        pop()
+      }`,
+        tags:'geometry, shape, class, custom, object'
+  },
+  {
+      name:'Polar Flower',
+      code: `
+      function flower(x, y, radius, numPetals) {
+        push()
+        translate(x, y)
+        beginShape()
+        for(let i = 0; i < 360; i++) {
+          var sinMod = map(sin(i*numPetals), -1, 1, 0, 1)
+          var expo = 0.25
+          var expoMod = map(pow(sinMod, expo), 0, pow(1, expo), 0.5, 1)
+      
+          var xPosition = cos(i)*radius*expoMod
+          var yPosition = sin(i)*radius*expoMod
+      
+          curveVertex(xPosition, yPosition)
+        }
+        endShape(CLOSE)
+        pop()
+      }`,
+        tags:'geometry, shape, sine, petals, exponential'
+  },
 ]

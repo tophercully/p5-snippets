@@ -7,15 +7,7 @@ import javascript from 'highlight.js/lib/languages/javascript';
 import glsl from 'highlight.js/lib/languages/glsl';
 import './Display.css'
 import "highlight.js/styles/monokai.css";
-
-
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { monokaiSublime, monokai } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-
 import { CodeBlock } from "./CodeBlock";
-
-
-
 
 export const Display = (props) => {
     const {selection, page} = props
@@ -43,7 +35,7 @@ export const Display = (props) => {
     
     
     function copyCode(e) {
-        navigator.clipboard.writeText(array[selection].code);
+        navigator.clipboard.writeText(JSON.stringify(array[selection].code));
         console.log('code copied to clipboard')
     }
 
