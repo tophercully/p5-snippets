@@ -16,10 +16,10 @@ export const Display = (props) => {
     } else if(page == 1) {
         //glsl
         array = snippets.p5
-        language = 'glsl'
     } else if(page == 2) {
         //colors
         array = snippets.glsl
+        language = 'glsl'
     } else {
         //colors
         array = snippets.palettes
