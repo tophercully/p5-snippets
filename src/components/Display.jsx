@@ -1,33 +1,28 @@
 import React, { useEffect } from "react";
-import { p5Snippets } from "../data/P5Snippets";
-import { glslSnippets } from "../data/glslSnippets";
-import { colorPals } from "../data/colorPals";
-import hljs from "highlight.js";
-import javascript from 'highlight.js/lib/languages/javascript';
-import glsl from 'highlight.js/lib/languages/glsl';
 import './Display.css'
 import "highlight.js/styles/monokai.css";
 import { CodeBlock } from "./CodeBlock";
+import { snippets } from "../data/Snippets";
 
 export const Display = (props) => {
     const {selection, page} = props
     
 
-    let array = p5Snippets
+    let array = snippets.p5
     let language = 'javascript'
     if(page == 0) {
         //p5.js
-        array = p5Snippets
-        hljs.registerLanguage('javascript', javascript);
+        array = snippets.js
     } else if(page == 1) {
         //glsl
-        array = glslSnippets
-        hljs.registerLanguage('glsl', glsl);
+        array = snippets.p5
         language = 'glsl'
-        
+    } else if(page == 2) {
+        //colors
+        array = snippets.glsl
     } else {
         //colors
-        array = colorPals
+        array = snippets.palettes
     }
 
     array.sort(dynamicSort('name'))
@@ -61,7 +56,7 @@ export const Display = (props) => {
     }
     
 
-    if(array[selection] && page != 2) {
+    if(array[selection] && page != 3) {
         return(
             <div className="display">
                 <br></br>
@@ -70,7 +65,7 @@ export const Display = (props) => {
             </div>
 
         )
-    } else if(array[selection] && page == 2) {
+    } else if(array[selection] && page == 3) {
         return(
             <>
             <div className="display" key={page} style={{

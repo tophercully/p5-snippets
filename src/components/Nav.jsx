@@ -24,9 +24,10 @@ export const Nav = (props) => {
 
     return(
         <div className="navBar">
-            <button className="nav-button" onClick={()=>handleClick(0)} key='0'>p5.js</button>
-            <button className="nav-button" onClick={()=>handleClick(1)} key='1'>GLSL</button>
-            <button className="nav-button" onClick={()=>handleClick(2)} key='2'>Color</button>
+            <button className="nav-button" onClick={()=>handleClick(0)} key='0'>Vanilla JS</button>
+            <button className="nav-button" onClick={()=>handleClick(1)} key='1'>p5.js</button>
+            <button className="nav-button" onClick={()=>handleClick(2)} key='2'>GLSL</button>
+            <button className="nav-button" onClick={()=>handleClick(3)} key='3'>Color</button>
         </div>
     )
 }

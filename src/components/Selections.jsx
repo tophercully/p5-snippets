@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { p5Snippets } from "../data/P5Snippets";
-import { glslSnippets } from "../data/glslSnippets";
-import { colorPals } from "../data/colorPals";
 import './Selections.css'
+import { snippets } from "../data/Snippets";
 
 export const Selections = (props) => {
 
@@ -11,17 +9,21 @@ export const Selections = (props) => {
     let placeholder = "Try 'geometry', 'array', 'vector'"
     
 
-    let array = p5Snippets
+    let array = snippets.js
     if(page == 0) {
         //p5.js
-        array = p5Snippets
+        array = snippets.js
     } else if(page == 1) {
         //glsl
-        array = glslSnippets
+        array = snippets.p5
+        placeholder = "Try 'polar', 'grid', 'flower'"
+    } else if(page == 2) {
+        //glsl
+        array = snippets.glsl
         placeholder = "Try 'fBm', 'color', 'contrast'"
     } else {
         //colors
-        array = colorPals
+        array = snippets.palettes
         placeholder = "Try 'warm', 'purple', 'monochrome'"
     }
 
@@ -104,6 +106,7 @@ export const Selections = (props) => {
                                 
                                 <div className="palette">
                                     {
+                                        
                                     array[index].code.map((a, indexB)=> {
                                         const col = array[index].code[indexB]
                                         try{
@@ -124,7 +127,7 @@ export const Selections = (props) => {
     }
 
     function All() {
-        if(page==2) {
+        if(page==3) {
             return <AllColors/>
         } else {
             return <AllNames/>
