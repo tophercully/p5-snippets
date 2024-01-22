@@ -2,6 +2,21 @@ import React, { useEffect, useState } from "react";
 import './Selections.css'
 import { snippets } from "../data/Snippets";
 
+function dynamicSort(property) {
+    var sortOrder = 1;
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+    return function (a,b) {
+        /* next line works with strings and numbers, 
+         * and you may want to customize it to your needs
+         */
+        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        return result * sortOrder;
+    }
+}
+
 export const Selections = (props) => {
 
     const {selection, setSelection, page} = props
@@ -11,10 +26,10 @@ export const Selections = (props) => {
 
     let array = snippets.js
     if(page == 0) {
-        //p5.js
+        //vanilla js
         array = snippets.js
     } else if(page == 1) {
-        //glsl
+        //p5.js
         array = snippets.p5
         placeholder = "Try 'polar', 'grid', 'flower'"
     } else if(page == 2) {
@@ -26,28 +41,14 @@ export const Selections = (props) => {
         array = snippets.palettes
         placeholder = "Try 'warm', 'purple', 'monochrome'"
     }
+    array.sort(dynamicSort('name'))
 
     function handleClick(e, index) {
         setSelection(index)
     }
 
-    function dynamicSort(property) {
-        var sortOrder = 1;
-        if(property[0] === "-") {
-            sortOrder = -1;
-            property = property.substr(1);
-        }
-        return function (a,b) {
-            /* next line works with strings and numbers, 
-             * and you may want to customize it to your needs
-             */
-            var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
-            return result * sortOrder;
-        }
-    }
-
-
     useEffect(() => {
+        //highlight selection
         var buttons = document.getElementsByClassName('selection-button')
         for(let i = 0; i < buttons.length; i++) {
             if(i == selection) {
@@ -60,24 +61,14 @@ export const Selections = (props) => {
 
     function handleChange(e) {
         setFilter(e.target.value)
-
-        // filteredArray = []
-        // array.map((a, index) => {
-        //     if(a.name.toLowerCase().includes(filter.toLowerCase()) || a.tags.includes(filter.toLowerCase())) {
-        //         filteredArray.push(a)
-                    
-        //     }
-            
-        // })
-    
     }
 
-    array.sort(dynamicSort('name'))
+    
     
 
     function AllNames() {
         return (
-            <div className="selections">
+            <div className="selections" id="selections">
                 {array.map((a, index) => {
                     if(a.name.toLowerCase().includes(filter.toLowerCase()) || a.tags.includes(filter.toLowerCase())) {
                         return(

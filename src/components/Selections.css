@@ -1,6 +1,6 @@
 .selections{
     height:100%;
-    width: 100%;
+    min-width: 100%;
 
     display: flex;
     flex-direction: column;
@@ -15,22 +15,25 @@
 
 .selection-box{
     height:70vh;
-    width: 30%;
+    min-width: 30vmax;
+    /* max-width: 100vmax; */
 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
 
-    overflow-y: auto;
-    overflow-x: hidden;
+    /* overflow-y: auto;
+    overflow-x: hidden; */
 
     border: 1px black solid;
+
+    flex-grow: 1;
 }
 
 .searchbar{
     height:4vh;
-    width: 100%;
+    width: calc(100% - 1.5vh);
 
     padding-left: 1vh;
 

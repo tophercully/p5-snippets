@@ -134,6 +134,25 @@ export const snippets = {
           }`,
             tags:'geometry, shape, sine, petals, exponential'
       },
+      {
+          name:'Polar Polygon',
+          code: `
+          function polarPolygon(x, y, radius, numSides, offset) {
+            var inc = 360/numSides
+            push()
+            translate(x, y)
+            beginShape()
+            for(let i = offset; i < 360+offset; i+=inc) {
+              var xPosition = cos(i)*radius
+              var yPosition = sin(i)*radius
+          
+              vertex(xPosition, yPosition)
+            }
+            endShape(CLOSE)
+            pop()
+          }`,
+            tags:'geometry, shape, sides, offset'
+      },
     ],
     glsl: [
         {
@@ -502,7 +521,8 @@ export const snippets = {
             function randomInt(min, max) {
               min = Math.ceil(min);
               max = Math.floor(max);
-              return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is exclusive and the minimum is inclusive
+              return Math.floor(Math.random() * (max - min + 1) + min); 
+              // The maximum is exclusive and the minimum is inclusive
             }`,
               tags:'random, limit, round, floor, ceil'
         },
