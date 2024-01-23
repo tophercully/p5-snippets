@@ -153,6 +153,16 @@ export const snippets = {
           }`,
             tags:'geometry, shape, sides, offset'
       },
+      {
+          name:'Save PNG',
+          code: `
+          function keyTyped() {
+            if (key === "s" || key === "S") {
+              save("img");
+            }
+          }`,
+            tags:'image, download, png, file'
+      },
     ],
     glsl: [
         {
