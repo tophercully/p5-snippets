@@ -30,9 +30,15 @@ export const Display = (props) => {
     
     
     function copyCode(e) {
-        navigator.clipboard.writeText(JSON.stringify(array[selection].code));
-        console.log('code copied to clipboard')
+        if(page == 3) {
+            navigator.clipboard.writeText(JSON.stringify(array[selection].code));
+            console.log('code copied to clipboard')
+        } else {
+            navigator.clipboard.writeText(array[selection].code);
+            console.log('code copied to clipboard')
+        }
     }
+    
 
     function dynamicSort(property) {
         var sortOrder = 1;
