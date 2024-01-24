@@ -5,4 +5,6 @@ pre{
 pre code.hljs{
     background-color: none;
     background: none;
+
+    font-size: 50%;
 }

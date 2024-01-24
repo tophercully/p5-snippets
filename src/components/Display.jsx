@@ -64,7 +64,7 @@ export const Display = (props) => {
 
     if(array[selection] && page != 3) {
         return(
-            <div className="display">
+            <div className="display" onClick={copyCode}>
                 <br></br>
                 <CodeBlock language={language} code={array[selection].code}/>
                 <button className="copy-button" onClick={copyCode}><img className="copy-icon" src="copy.svg"></img></button>
@@ -74,7 +74,7 @@ export const Display = (props) => {
     } else if(array[selection] && page == 3) {
         return(
             <>
-            <div className="display" key={page} style={{
+            <div className="display" key={page} onClick={copyCode} style={{
                 flexDirection:'column'
             }}>
                 <button 
