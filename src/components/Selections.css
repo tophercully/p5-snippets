@@ -51,6 +51,7 @@
     padding-bottom:1vh;
 
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
@@ -68,6 +69,12 @@
 .selection-name{
     padding-right: 1vh;
     font-weight: 500;
+}
+.selection-author{
+    font-weight:100;
+    font-size:0.75rem;
+    margin-right:3vh;
+    
 }
 
 .palette{

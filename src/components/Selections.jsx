@@ -74,7 +74,8 @@ export const Selections = (props) => {
                         return(
                             
                             <div className="selection-button" onClick={(e)=>handleClick(e, index)} key={index}>
-                            <h4 className="selection-name"  key={index}>{a.name}</h4>
+                                <h4 className="selection-name"  key={index}>{a.name}</h4>
+                                <p className="selection-author">{a.author}</p>
                             </div>
                             
                         

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import './Display.css'
-import "highlight.js/styles/monokai.css";
+import "highlight.js/styles/github-dark.css";
 import { CodeBlock } from "./CodeBlock";
 import { snippets } from "../data/Snippets";
 
