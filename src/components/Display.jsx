@@ -67,7 +67,7 @@ export const Display = (props) => {
             <div className="display" onClick={copyCode}>
                 <br></br>
                 <CodeBlock language={language} code={array[selection].code}/>
-                <button className="copy-button" onClick={copyCode}><img className="copy-icon" src="copy.svg"></img></button>
+                <div className="copy-button" onClick={copyCode}><img className="copy-icon" src="copy.svg"></img></div>
             </div>
 
         )
@@ -77,7 +77,7 @@ export const Display = (props) => {
             <div className="display" key={page} onClick={copyCode} style={{
                 flexDirection:'column'
             }}>
-                <button 
+                <div 
                     className="copy-button-B" 
                     onClick={copyCode}>
                     <img 
@@ -86,7 +86,7 @@ export const Display = (props) => {
                     style={{
                         alignSelf:'flex-end'
                     }}></img>
-                </button>
+                </div>
                 {array[selection].code.map((a)=> {
                     return <p className="javascript" style={{backgroundColor:a}}>{a}</p>
                 })}

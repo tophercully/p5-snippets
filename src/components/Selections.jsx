@@ -20,7 +20,10 @@ function dynamicSort(property) {
 export const Selections = (props) => {
 
     const {selection, setSelection, page} = props
+    const [scrollPos, setScrollPos] = useState(0)
     const [filter, setFilter] = useState('')
+
+    var thisBox = document.getElementById('selections')
     let placeholder = "Try 'geometry', 'array', 'vector'"
     
 
@@ -44,6 +47,7 @@ export const Selections = (props) => {
     array.sort(dynamicSort('name'))
 
     function handleClick(e, index) {
+        setScrollPos(document.getElementById('selections').scrollTop)
         setSelection(index)
     }
 
@@ -57,7 +61,23 @@ export const Selections = (props) => {
                 buttons[i].style.color = '#f5f5f5'
             }
         }
+
+        
+        
     }, [selection])
+
+    useEffect(()=>{
+        //return to last scrollbar position
+        document.getElementById('selections').addEventListener("scrollend", (event) => {
+            debounce(()=>{console.log('scrolling stopped')
+            setScrollPos(document.getElementById('selections').scrollTop)}, 100)
+        }, {once : true});
+    }, [selection])
+    useEffect(()=>{
+        document.getElementById('selections').scrollTop = scrollPos
+        console.log('set scrollbar back')
+    }, [selection])
+
 
     function handleChange(e) {
         setFilter(e.target.value)
@@ -88,7 +108,7 @@ export const Selections = (props) => {
 
     function AllColors() {
         return(
-            <div className="selections">
+            <div className="selections" id="selections">
                 {array.map((a, index) => {
                     if(a.name.toLowerCase().includes(filter.toLowerCase()) || a.tags.includes(filter.toLowerCase())) {
                         return(

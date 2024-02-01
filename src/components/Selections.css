@@ -23,13 +23,21 @@
     justify-content: flex-start;
     align-items: flex-start;
 
-    /* overflow-y: auto;
-    overflow-x: hidden; */
 
     border: 1px black solid;
 
     flex-grow: 1;
 }
+
+.selections::-webkit-scrollbar {
+    width: 0.35rem;
+    padding: 4px;
+  }
+.selections::-webkit-scrollbar-thumb {
+    background-color: #252525;
+    /* padding: 4px; */
+    border: 1px solid #f5f5f5;
+  }
 
 .searchbar{
     height:4vh;
