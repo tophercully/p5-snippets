@@ -1,23 +1,49 @@
-.display{
-    height: 70vh;
-    width:70%;
+@media (orientation: landscape) { 
 
-    min-width: 30vmax;
-
-    flex-grow: 1;
-
-    border: 1px solid black;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-    overflow: auto;
-
-    background-color: #252525;
-
-    transition: 100ms ease-in-out;
+    
+    .display{
+        height: 70vh;
+        width:70vw;
+        
+        
+        flex-grow: 1;
+        
+        border: 1px solid black;
+        
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        
+        overflow: auto;
+        
+        background-color: #252525;
+        
+        transition: 100ms ease-in-out;
+    }
+}
+@media (orientation: portrait) { 
+    .display{
+        height: 70vh;
+        width:100%;
+        
+        min-width: 30vmax;
+        
+        flex-grow: 1;
+        
+        border: 1px solid black;
+        
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        
+        overflow: auto;
+        
+        background-color: #252525;
+        
+        transition: 100ms ease-in-out;
+    }
 }
 
 .display:hover{

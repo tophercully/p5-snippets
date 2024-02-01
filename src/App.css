@@ -23,12 +23,27 @@
 
   /* border: 1px solid black; */
 }
-.main-body{
-  width:100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+@media (orientation: landscape) {
+  .main-body{
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: center;
+  }
+  
+}
+
+@media (orientation: portrait) {
+  .main-body{
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    justify-content: flex-start;
+    align-items: center;
+  }
 }
