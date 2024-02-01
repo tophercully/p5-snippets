@@ -15,7 +15,8 @@
 
 .selection-box{
     height:70vh;
-    min-width: 20vmax;
+    width:28%;
+    min-width: 30vmin;
     /* max-width: 100vmax; */
 
     display: flex;

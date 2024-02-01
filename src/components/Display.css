@@ -1,6 +1,8 @@
 .display{
     height: 70vh;
-    width:80vmin;
+    width:70%;
+
+    min-width: 30vmax;
 
     flex-grow: 1;
 
