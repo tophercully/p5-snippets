@@ -2,9 +2,10 @@
 
     
     .display{
+
         height: 70vh;
         width:70vw;
-        
+        /* z-index: -1; */
         
         flex-grow: 1;
         
@@ -20,6 +21,12 @@
         background-color: #252525;
         
         transition: 100ms ease-in-out;
+
+        cursor: pointer;
+
+        transition: 200ms ease-in-out;
+
+        cursor: auto;
     }
 }
 @media (orientation: portrait) { 
@@ -46,12 +53,48 @@
     }
 }
 
+display * {
+    z-index: 3;
+}
+
+.mouse-message{
+    position: fixed;
+    z-index: 1;
+    width: 100px;
+    height:100px;
+    /* left:50%;
+    top:50%; */
+    transform: translate(calc(50%-(var(--mouseX)*100%)), calc(50%-(var(--mouseY)*100%)));
+    transition: 100ms;
+
+    opacity: 0%;
+}
+
+.display:hover > .mouse-message {
+    position: fixed;
+    /* width: 200px;
+    height:200px; */
+    font-size: 2em;
+    text-align: center;
+    top:0;
+    left:0;
+
+    transform:translate(calc((var(--mouseX)*100vw) - 50%), calc((var(--mouseY)*100vh) - 100%));
+    color: #F92573;
+    filter: blur(4px);
+    opacity: 100%;
+}
+
 .display:hover{
     background-color: #2e2e2e;
-    
+    cursor: url('click.png'),auto;
+    /* background: radial-gradient(at calc((var(--mouseX)) - 50vw) var(--mouseY), #8c1541, #252525, #252525); */
 }
+
 .display:active{
     transform: scale(98%);
+    filter: blur(1px);
+    cursor: url('enjoy.png'),auto;
 
 }
 

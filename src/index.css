@@ -12,6 +12,9 @@
   color: #252525;
   background-color: #f5f5f5;
 
+  --mouseX:0px;
+  --mouseY:0px;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

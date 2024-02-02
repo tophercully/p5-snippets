@@ -97,10 +97,12 @@
 .selection-name{
     padding-right: 1vh;
     font-weight: 500;
+    font-size: 1em;
+    text-wrap: nowrap;
 }
 .selection-author{
-    font-weight:100;
-    font-size:0.75rem;
+    font-weight:200;
+    font-size:0.6em;
     margin-right:3vh;
     
 }

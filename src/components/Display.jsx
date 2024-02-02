@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import './Display.css'
 import "highlight.js/styles/github-dark.css";
 import { CodeBlock } from "./CodeBlock";
@@ -6,7 +6,10 @@ import { snippets } from "../data/Snippets";
 
 export const Display = (props) => {
     const {selection, page} = props
-    
+    // const [mousePos, setMousePos] = useState({
+    //     x: 0,
+    //     y:0,
+    // })
 
     let array = snippets.p5
     let language = 'javascript'
@@ -60,14 +63,41 @@ export const Display = (props) => {
             <img src="array[selection].img" className="example-image"></img>
         )
     }
+
+    const moveCursor = (e) => {
+        const mouseY = e.clientY;
+        const mouseX = e.clientX;
+        
+        // debounce(()=>{console.log(mouseX, mouseY)}, 10)
+        console.log(mouseX, mouseY)
+        
+
+        setMousePos({
+            x: mouseX,
+            y: mouseY,
+        })
+    }
+
+    function debounce(callback, delay) {
+        let timer
+        return function() {
+          clearTimeout(timer)
+          timer = setTimeout(() => {
+            callback();
+          }, delay)
+        }
+      }
+    
+    
     
 
     if(array[selection] && page != 3) {
         return(
             <div className="display" onClick={copyCode}>
+                {/* <h3 className="mouse-message" id="mouse-message" src="click.png">CLICK TO COPY :)</h3> */}
                 <br></br>
                 <CodeBlock language={language} code={array[selection].code}/>
-                <div className="copy-button" onClick={copyCode}><img className="copy-icon" src="copy.svg"></img></div>
+                <div className="copy-button" onClick={copyCode}><img className="copy-icon" src="/copy.svg"></img></div>
             </div>
 
         )
@@ -77,12 +107,13 @@ export const Display = (props) => {
             <div className="display" key={page} onClick={copyCode} style={{
                 flexDirection:'column'
             }}>
+                {/* <div className="mouse-message" id="mouse-message" src="click.png"></div> */}
                 <div 
                     className="copy-button-B" 
                     onClick={copyCode}>
                     <img 
                     className="copy-icon" 
-                    src="copy.svg" 
+                    src="/copy.svg" 
                     style={{
                         alignSelf:'flex-end'
                     }}></img>
