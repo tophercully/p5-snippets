@@ -10,9 +10,11 @@ export const Nav = (props) => {
             if(i == page) {
                 pages[i].style.backgroundColor = '#252525'
                 pages[i].style.color = '#f5f5f5'
+                pages[i].style.flex = 1
             } else {
                 pages[i].style.backgroundColor = '#f5f5f5'
                 pages[i].style.color = '#252525'
+                pages[i].style.flex = 0.75
             }
         }
     }, [page])

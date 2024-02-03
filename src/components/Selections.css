@@ -11,6 +11,7 @@
     overflow-x: hidden;
 
     border: 1px black solid;
+    /* margin-right: 0.35rem; */
 }
 
 @media (orientation: landscape) { 
@@ -32,7 +33,7 @@
 }
 @media (orientation: portrait) { 
     .selection-box{
-        height:50vh;
+        height:40vh;
         width:100%;
         min-width: 30vmin;
         /* max-width: 100vmax; */
@@ -46,12 +47,15 @@
         border: 1px black solid;
         
         flex-grow: 1;
+
+        margin-bottom: -1.5rem;
     }
 }
     
 .selections::-webkit-scrollbar {
     width: 0.35rem;
     padding: 4px;
+    
   }
 .selections::-webkit-scrollbar-thumb {
     background-color: #252525;
@@ -110,13 +114,17 @@
 .palette{
     display: flex;
     padding-right: 2vh;
+
+    width: 20vh;
     
 }
 
 .pal-block{
     all:unset;
     width: 3vh;
-    height:5vh;
+    height:4vh;
+
+    flex-grow: 1;
     /* border: 1px solid black; */
 }
 

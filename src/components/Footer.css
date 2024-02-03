@@ -10,6 +10,12 @@
         /* margin-top: 1em; */
         
     }
+    .socials{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
 }
 @media (orientation:portrait) {
 
@@ -17,10 +23,17 @@
         display: flex;
         width: 100%;
         flex-direction: column-reverse;
-        align-items: flex-start;
+        align-items: center;
         justify-content: space-between;
         /* margin-top: 1em; */
         
+    }
+    .socials{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
     }
 }
     
@@ -30,12 +43,7 @@
     justify-self: flex-start;
 }
 
-.socials{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
+
 
 .social-icon{
     margin-top: 1em;
