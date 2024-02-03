@@ -9,7 +9,7 @@
         
         flex-grow: 1;
         
-        border: 1px solid black;
+        border: 1px solid #18181C;
         
         display: flex;
         flex-direction: row;
@@ -18,7 +18,7 @@
         
         overflow: auto;
         
-        background-color: #252525;
+        background-color: #18181C;
         
         transition: 100ms ease-in-out;
 
@@ -31,14 +31,14 @@
 }
 @media (orientation: portrait) { 
     .display{
-        height: 70vh;
+        height: 30vh;
         width:100%;
         
         min-width: 30vmax;
         
         flex-grow: 1;
         
-        border: 1px solid black;
+        border: 1px solid #18181C;
         
         display: flex;
         flex-direction: row;
@@ -47,7 +47,7 @@
         
         overflow: auto;
         
-        background-color: #252525;
+        background-color: #18181C;
         
         transition: 100ms ease-in-out;
     }

@@ -8,7 +8,7 @@ export const Nav = (props) => {
         var pages = document.getElementsByClassName('nav-button')
         for(let i = 0; i < pages.length; i++) {
             if(i == page) {
-                pages[i].style.backgroundColor = '#252525'
+                pages[i].style.backgroundColor = '#18181C'
                 pages[i].style.color = '#f5f5f5'
                 pages[i].style.flex = 1
             } else {

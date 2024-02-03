@@ -21,14 +21,14 @@
     align-items: center;
 
     background-color: #f5f5f5;
-    border: 1px solid black;
+    border: 1px solid #18181C;
 
     transition-property: flex;
     transition: 200ms ease-in-out;
 }
 
 .nav-button:hover{
-    background-color: #252525;
+    background-color: #18181C;
     color: #f5f5f5;
 
 }

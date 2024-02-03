@@ -19,11 +19,8 @@
   height: 80%;
   display: flex;
   flex-direction: column;
-  /* flex-wrap: wrap; */
   justify-content: center;
   align-items: center;
-
-  /* border: 1px solid black; */
 }
 
 @media (orientation: landscape) {
@@ -60,7 +57,7 @@
     font-weight: 900;
     word-spacing: 0.075em;
     align-self: flex-start;
-    margin-bottom: -6px;
+    margin-bottom: 0px;
 
     
   
