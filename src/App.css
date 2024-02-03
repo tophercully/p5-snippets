@@ -35,6 +35,14 @@
     justify-content: center;
     align-items: center;
   }
+  .title{
+    font-size: 3em;
+    font-weight: 900;
+    word-spacing: 0.075em;
+    align-self: flex-start;
+    margin-bottom: 0;
+  
+  }
   
 }
 
@@ -47,13 +55,15 @@
     justify-content: flex-start;
     align-items: center;
   }
+  .title{
+    font-size: 1.75em;
+    font-weight: 900;
+    word-spacing: 0.075em;
+    align-self: flex-start;
+    margin-bottom: -6px;
+
+    
+  
+  }
 }
 
-.title{
-  font-size: 3em;
-  font-weight: 900;
-  word-spacing: 0.075em;
-  align-self: flex-start;
-  margin-bottom: 0;
-
-}
