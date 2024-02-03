@@ -16,7 +16,7 @@
     .footer{
         display: flex;
         width: 100%;
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: flex-start;
         justify-content: space-between;
         /* margin-top: 1em; */
