@@ -1,11 +1,13 @@
 .navBar{
-    /* margin-bottom: 1vh; */
-
+    width: 100%;
+    height: auto;
     display: flex;
     justify-content: center;
-    width:100%;
 
     flex-grow: 1;
+    border-left: 3px solid var(--text);
+    border-right: 3px solid var(--text);
+    box-sizing: border-box;
     
 }
 
@@ -14,21 +16,22 @@
     width: 100%;
     height: 4vh;
 
-    /* padding:1vh; */
-
+    font-family: Bebas Neue;
+    font-size: 200%;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    background-color: #f5f5f5;
+    background-color: var(--bg);
     border: 1px solid black;
-    
+
+    transition: flex 250ms ease-out, background-color 150ms linear;
 }
 
 .nav-button:hover{
-    background-color: #252525;
-    color: #f5f5f5;
-
+    background-color: red;
+    color: var(--text);
+    cursor: pointer;
 }
 .nav-button:active{
     background-color: #304BD3;

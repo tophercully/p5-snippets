@@ -17,10 +17,23 @@
         display: flex;
         width: 100%;
         flex-direction: column-reverse;
-        align-items: flex-start;
+        align-items: center;
         justify-content: space-between;
         /* margin-top: 1em; */
+        transform: scale(0.8);
         
+    }
+    .socials{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .social-icon{
+        margin-top: 1em;
+        height: 2em;
+        /* padding-left: 2em; */
     }
 }
     
@@ -31,8 +44,9 @@
 }
 
 .socials{
+    width: 33%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     flex-wrap: wrap;
 }

@@ -1,29 +1,14 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-
-  --totalWid: 80vmax;
 
 
-
-  display: flex;
-  place-items: center;
-  justify-content: center;
-  align-items: center;
-}
-
-.app-container{
-  width:80vw;
-  height: 80%;
+.home-container{
+  width:100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   /* flex-wrap: wrap; */
   justify-content: center;
   align-items: center;
 
-  /* border: 1px solid black; */
 }
 
 @media (orientation: landscape) {
@@ -34,26 +19,18 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
+    
   }
-  
 }
 
 @media (orientation: portrait) {
   .main-body{
     width:100%;
-    height: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
   }
-}
-
-.title{
-  font-size: 3em;
-  font-weight: 900;
-  word-spacing: 0.075em;
-  align-self: flex-start;
-  margin-bottom: 0;
-
 }

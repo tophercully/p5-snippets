@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './Selections.css'
-import { snippets } from "../data/Snippets";
+// import { snippets } from "../data/Snippets";
 
 function dynamicSort(property) {
     var sortOrder = 1;
@@ -18,33 +18,34 @@ function dynamicSort(property) {
 }
 
 export const Selections = (props) => {
-
+    const snippets = props.snippets
     const {selection, setSelection, page} = props
     const [scrollPos, setScrollPos] = useState(0)
     const [filter, setFilter] = useState('')
 
     var thisBox = document.getElementById('selections')
     let placeholder = "Try 'geometry', 'array', 'vector'"
-    
 
-    let array = snippets.js
-    if(page == 0) {
-        //vanilla js
-        array = snippets.js
-    } else if(page == 1) {
-        //p5.js
-        array = snippets.p5
-        placeholder = "Try 'polar', 'grid', 'flower'"
-    } else if(page == 2) {
-        //glsl
-        array = snippets.glsl
-        placeholder = "Try 'fBm', 'color', 'contrast'"
-    } else {
-        //colors
-        array = snippets.palettes
-        placeholder = "Try 'warm', 'purple', 'monochrome'"
-    }
-    array.sort(dynamicSort('name'))
+        let array = snippets
+        if(page == 0) {
+            //vanilla js
+            array = snippets.js
+        } else if(page == 1) {
+            //p5.js
+            array = snippets.p5
+            placeholder = "Try 'polar', 'grid', 'flower'"
+        } else if(page == 2) {
+            //glsl
+            array = snippets.glsl
+            placeholder = "Try 'fBm', 'color', 'contrast'"
+        } else {
+            //colors
+            array = snippets.palettes
+            placeholder = "Try 'warm', 'purple', 'monochrome'"
+        }
+        array.sort(dynamicSort('name'))
+    
+    
 
     function handleClick(e, index) {
         setScrollPos(document.getElementById('selections').scrollTop)
@@ -57,14 +58,15 @@ export const Selections = (props) => {
         for(let i = 0; i < buttons.length; i++) {
             if(i == selection) {
 
-                buttons[i].style.backgroundColor = '#252525'
-                buttons[i].style.color = '#f5f5f5'
+                buttons[i].style.backgroundColor = 'var(--text)'
+                buttons[i].style.color = 'var(--bg)'
             }
         }
 
         
         
     }, [selection])
+    
 
     useEffect(()=>{
         //return to last scrollbar position

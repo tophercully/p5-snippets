@@ -1,16 +1,22 @@
 :root {
   all: unset;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: PP Neue Montreal, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   width: 100vw;
-  height: 100vh;
-
+  height: 100svh;
+  margin: 0;
+  padding: 0;
 
   color-scheme: light dark;
   color: #252525;
   background-color: #f5f5f5;
+
+  --bg : #f5f5f5;
+  --text : #161616;
+  --primary : #304BD3;
+  --secondary : #FE1301;
 
   --mouseX:0px;
   --mouseY:0px;
@@ -22,60 +28,61 @@
   -webkit-text-size-adjust: 100%;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+@font-face {
+  font-family: Bebas Neue;
+  src: url(../public/BebasNeue-Regular.otf);
 }
-a:hover {
-  color: #535bf2;
+@font-face {
+  font-family: PP Neue Montreal;
+  src: url(../public/PPNeueMontreal-Regular.otf);
+}
+@font-face {
+  font-family: PP Neue Montreal Bold;
+  src: url(../public/PPNeueMontreal-Bold.otf);
+}
+@font-face {
+  font-family: PP Neue Montreal Bold Italic;
+  src: url(../public/PPNeueMontreal-BoldItalic.otf);
+}
+@font-face {
+  font-family: PP Neue Montreal Book;
+  src: url(../public/PPNeueMontreal-Book.otf);
+}
+@font-face {
+  font-family: Satoshi;
+  src: url(../public/Satoshi-Variable.ttf);
 }
 
-body {
+
+body, html {
+  all: unset;
+  width: 100vw;
+  height: 100svh;
   margin: 0;
   display: flex;
-  place-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   min-width: 320px;
   min-height: 100vh;
-
-
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+#root{
+  width: 100vw;
+  height: 70%;
+  margin: 0;
+  padding: 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.app-container {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

@@ -6,10 +6,6 @@ import { snippets } from "../data/Snippets";
 
 export const Display = (props) => {
     const {selection, page} = props
-    // const [mousePos, setMousePos] = useState({
-    //     x: 0,
-    //     y:0,
-    // })
 
     let array = snippets.p5
     let language = 'javascript'
@@ -95,9 +91,9 @@ export const Display = (props) => {
         return(
             <div className="display" onClick={copyCode}>
                 {/* <h3 className="mouse-message" id="mouse-message" src="click.png">CLICK TO COPY :)</h3> */}
-                <br></br>
+                {/* <br></br> */}
                 <CodeBlock language={language} code={array[selection].code}/>
-                <div className="copy-button" onClick={copyCode}><img className="copy-icon" src="/copy.svg"></img></div>
+                {/* <div className="copy-button" onClick={copyCode}><img className="copy-icon" src="/copy.svg"></img></div> */}
             </div>
 
         )
@@ -107,7 +103,6 @@ export const Display = (props) => {
             <div className="display" key={page} onClick={copyCode} style={{
                 flexDirection:'column'
             }}>
-                {/* <div className="mouse-message" id="mouse-message" src="click.png"></div> */}
                 <div 
                     className="copy-button-B" 
                     onClick={copyCode}>

@@ -1,0 +1,63 @@
+.header-nav{
+    width: 100%;
+    height: 6vw;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 4px solid var(--text);
+    /* margin-bottom: 4em; */
+}
+
+.title{
+    font-size: 6vw;
+    font-weight: 900;
+    word-spacing: 0.075em;
+    letter-spacing: 1px;
+    align-self: flex-start;
+    margin: 0;
+    line-height: 0.575;
+    font-family: Bebas Neue;
+    text-decoration: none;
+    color: var(--text);
+}
+
+.title-anchor{
+    text-decoration:none;
+    color: var(--text);
+}
+
+.profile-button{
+    height: 50%;
+    aspect-ratio: 1/1;
+    align-self: flex-end;
+    background-color: color-mix(in srgb, var(--text) 10%, var(--bg) 90%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 250ms ease-out;
+}
+
+
+.profile-button:hover{
+    cursor: pointer;
+    transform: scale(1.1) translateY(-5%);
+}
+
+.user-icon{
+width: 100%;
+height: 50%;
+}
+
+@media (orientation:portrait) {
+    .title{
+        font-size: 10vw;
+        vertical-align: bottom;
+        align-self: flex-end;
+    }
+
+    .profile-button{
+        height: 50%;
+    }
+}

@@ -1,0 +1,72 @@
+.snippet-builder{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.builder-form{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    font-family: PP Neue Montreal Book;
+}
+
+.builder-form-label{
+    font-family: Bebas Neue;
+    font-size: 3em;
+    margin: 0;
+    margin-top: 0.5em;
+    line-height: 0.6;
+}
+.builder-form-input {
+    font-family: Satoshi;
+    font-weight: 800;
+    background-color: var(--text);
+    color: var(--bg);
+    padding-left: 0.5em;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0.1em;
+}
+.builder-form-input:focus {
+    border: 1px solid var(--primary);
+}
+
+#input-name{
+    width: 100%;
+    height: 15%;
+
+    font-size: 2em;
+}
+
+#input-code{
+    width: 100%;
+    height: 60%;
+    font-size: 2em;
+    padding-top: 0.5em;
+    resize:none;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-grow: 1;
+    
+}
+#input-tags{
+    width: 100%;
+    height: 15%;
+    font-size: 2em;
+}
+
+.builder-button{
+    background-color: var(--secondary);
+    width: 33%;
+    height: 10%;
+    margin-left: auto;
+}

@@ -1,13 +1,13 @@
 import React, {useEffect} from "react";
 import './Nav.css'
 
-export const Nav = (props) => {
-    const {page, setPage, setSelection} = props 
+export const UserNav = (props) => {
+    const {page, setPage, pageIndex, setSelection, snippets} = props 
 
     useEffect(() => {
         var pages = document.getElementsByClassName('nav-button')
         for(let i = 0; i < pages.length; i++) {
-            if(i == page) {
+            if(i == pageIndex) {
                 pages[i].style.backgroundColor = 'var(--text)'
                 pages[i].style.color = 'var(--bg)'
                 pages[i].style.flex = '1.2'
@@ -19,17 +19,15 @@ export const Nav = (props) => {
         }
     }, [page])
 
-    function handleClick(index) {
-        setPage(index)
-        setSelection(0)
+    function handleClick(buttonPage) {
+        setPage(buttonPage)
+        // setSelection(snippets[0])
     }
 
     return(
         <div className="navBar">
-            <button className="nav-button" onClick={()=>handleClick(0)} key='0'>Vanilla JS</button>
-            <button className="nav-button" onClick={()=>handleClick(1)} key='1'>p5.js</button>
-            <button className="nav-button" onClick={()=>handleClick(2)} key='2'>GLSL</button>
-            <button className="nav-button" onClick={()=>handleClick(3)} key='3'>Color</button>
+            <button className="nav-button" onClick={()=>handleClick({name:'userCreated', index:0})} key='0'>My Snippets</button>
+            <button className="nav-button" onClick={()=>handleClick({name:'favorites', index:1})} key='1'>Favorites</button>
         </div>
     )
 }
