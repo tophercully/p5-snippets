@@ -5,12 +5,29 @@ const pool = createPool({
 })
 
 export const loadFavorites = async (userID) => {
-    const { rows } = await pool.sql`
-        SELECT userfavorites
-        FROM Favorites
-        WHERE userID = ${userID};
-    `;
-    console.log('returning', rows)
-    return rows.length > 0 ? rows[0].userfavorites : [];
+    try {
+        const snippets = await pool.sql`
+            SELECT *
+            FROM snippets
+            WHERE snippetID IN (
+                SELECT snippetID
+                FROM favorites
+                WHERE userID = ${userID}
+            );
+        `;
 
+        const snippetsArray = snippets.rows.map((row) => ({
+            snippetID: row.snippetid,
+            name: row.name,
+            code: row.code,
+            tags: row.tags,
+            author: row.author,
+            authorID: Math.floor(row.authorid)
+        }));
+
+        return snippetsArray;
+    } catch (error) {
+        console.error('Error retrieving favorite snippets:', error);
+        throw error; // Re-throw the error for handling in the calling code
+    }
 };

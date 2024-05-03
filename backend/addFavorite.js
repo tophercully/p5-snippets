@@ -8,35 +8,31 @@ export const addFavorite = async (userID, snippetIDToAdd) => {
     try {
       // Check if the user has a record in Favorites
         const existingFavorites = await pool.sql`
-            SELECT EXISTS (
-            SELECT 1
-            FROM Favorites
-            WHERE userID = ${userID}
-            ) AS UserExists;
+        SELECT COUNT(*)
+        FROM favorites
+        WHERE userID = ${userID};
         `
-        const userHasFavorites = existingFavorites.rows[0].userexists;
+        const userHasFavorites = existingFavorites > 0 ? false : true;
 
         console.log(existingFavorites)
   
       // If the user doesn't have a record, create one
       if (!userHasFavorites) {
         await pool.sql`
-          INSERT INTO Favorites (userID, userfavorites)
-          VALUES (${userID}, ARRAY[${snippetIDToAdd}]);
+          INSERT INTO Favorites (userID, snippetID)
+          VALUES (${userID}, ${Math.floor(snippetIDToAdd)});
         `;
         console.log('created favorites list for user')
       } else {
         // Update Favorites and return the updated array
         const result = await pool.sql`
-            UPDATE Favorites
-            SET userfavorites = array_append(userfavorites, ${snippetIDToAdd})
-            WHERE userID = ${userID}
-            RETURNING userfavorites;
+          INSERT INTO favorites (userID, snippetID)
+          VALUES (${userID}, ${Math.floor(snippetIDToAdd)});
         `
 
         const updatedFavorites = result.allfavorites;
         console.log(updatedFavorites)
-        console.log(`SnippetID ${snippetIDToAdd} added to favorites for userID ${userID}`);
+        console.log(`SnippetID ${Math.floor(snippetIDToAdd)} added to favorites for userID ${userID}`);
         return updatedFavorites;
       }
     } catch (error) {

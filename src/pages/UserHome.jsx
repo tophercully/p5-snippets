@@ -14,6 +14,7 @@ import { Footer } from '../components/Footer'
 export const UserHome = () => {
   const [ profile, setProfile ] = useLocalStorage('profile', localStorage.getItem('profile') ? localStorage.getItem('profile') : null);
   const [ favorites, setFavorites ] = useLocalStorage('favorites', localStorage.getItem('favorites') ? localStorage.getItem('favorites') : []);
+  
   const [selection, setSelection] = useState(null)
   const [page, setPage] = useState({name:'userCreated', index:1})
   const [allSnippets, setAllSnippets] = useState()
@@ -43,8 +44,9 @@ export const UserHome = () => {
             const response = await loadAllSnippets()
             setSnippets(response)
         } else if(page.name == 'favorites') {
-            const response = await loadFavoriteSnippets(profile.id)
+            const response = await loadFavorites(profile.id)
             console.log(response)
+
             setSnippets(response)
         }
     }

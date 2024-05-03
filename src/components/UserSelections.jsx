@@ -22,6 +22,16 @@ export const UserSelections = (props) => {
         setSelection(array[index])
     }
 
+    function debounce(callback, delay) {
+        let timer
+        return function() {
+          clearTimeout(timer)
+          timer = setTimeout(() => {
+            callback();
+          }, delay)
+        }
+      }
+
     useEffect(() => {
         //highlight selection
         var buttons = document.getElementsByClassName('selection-button')
