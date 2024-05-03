@@ -23,6 +23,13 @@
 
         cursor: auto;
     }
+    pre{
+        margin: 5%;
+        height: 90%;
+    }
+    code{
+        height: 100%;
+    }
 }
 @media (orientation: portrait) { 
     .display{
@@ -97,6 +104,7 @@ display * {
     /* justify-self: center;
     align-self: center; */
     text-align: left;
+    height: 100%;
     /* padding-left: 4vh; */
     /* margin-right: 40vh; */
 
@@ -157,8 +165,9 @@ display * {
     background: none;
 }
 
-p.javascript{
+p.swatch{
     /* all:unset; */
+    margin-inline: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -171,7 +180,7 @@ p.javascript{
 
 
 
-.javascript{
+.swatch{
     text-align: left;
     color: #f5f5f5;
 }

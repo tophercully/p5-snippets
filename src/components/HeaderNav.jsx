@@ -62,6 +62,7 @@ export const HeaderNav = (props) => {
       if(loggedIn) {
         if(profile) {
           checkCreate()
+          console.log(profile)
         }
       }
     }, [loggedIn])

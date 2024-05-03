@@ -114,7 +114,7 @@ export const Display = (props) => {
                     }}></img>
                 </div>
                 {array[selection].code.map((a)=> {
-                    return <p className="javascript" style={{backgroundColor:a}}>{a}</p>
+                    return <p className="swatch" style={{backgroundColor:a}}>{a}</p>
                 })}
                 <br></br>
             </div>

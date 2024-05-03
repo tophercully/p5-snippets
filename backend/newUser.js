@@ -17,8 +17,8 @@ export const newUser = async (params) => {
             
             if (!userExists) {
                 await pool.sql`
-                INSERT INTO Snippet_Users(Email, Name, Googleid)
-                VALUES (${params.email}, ${params.name}, ${params.id})`;
+                INSERT INTO Snippet_Users(Name, Email, Googleid)
+                VALUES (${params.name}, ${params.email}, ${params.id})`;
                 
                 console.log('User created');
             } else {
