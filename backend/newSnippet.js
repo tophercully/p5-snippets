@@ -1,6 +1,5 @@
 import { createPool } from "@vercel/postgres";
 
-console.log(import.meta.env.VITE_SNIPPET_URL)
 const pool = createPool({
     connectionString: import.meta.env.VITE_SNIPPET_URL ,
 })

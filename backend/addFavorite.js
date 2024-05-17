@@ -5,40 +5,31 @@ const pool = createPool({
 })
 
 export const addFavorite = async (userID, snippetIDToAdd) => {
-    try {
-      // Check if the user has a record in Favorites
-        const existingFavorites = await pool.sql`
+  try {
+    // Check if the exact pair exists
+    const existingInstances = await pool.sql`
         SELECT COUNT(*)
         FROM favorites
-        WHERE userID = ${userID};
-        `
-        const userHasFavorites = existingFavorites > 0 ? false : true;
+        WHERE userID = ${userID}
+        AND snippetID = ${snippetIDToAdd};
+    `;
 
-        console.log(existingFavorites)
-  
-      // If the user doesn't have a record, create one
-      if (!userHasFavorites) {
+    const favoriteExists = existingInstances[0].count > 0;
+
+    // If the pair doesn't exist, create it
+    if (!favoriteExists) {
         await pool.sql`
-          INSERT INTO Favorites (userID, snippetID)
-          VALUES (${userID}, ${Math.floor(snippetIDToAdd)});
+            INSERT INTO favorites (userID, snippetID)
+            VALUES (${userID}, ${snippetIDToAdd});
         `;
-        console.log('created favorites list for user')
-      } else {
-        // Update Favorites and return the updated array
-        const result = await pool.sql`
-          INSERT INTO favorites (userID, snippetID)
-          VALUES (${userID}, ${Math.floor(snippetIDToAdd)});
-        `
-
-        const updatedFavorites = result.allfavorites;
-        console.log(updatedFavorites)
-        console.log(`SnippetID ${Math.floor(snippetIDToAdd)} added to favorites for userID ${userID}`);
-        return updatedFavorites;
-      }
-    } catch (error) {
-      console.error('Error adding snippet to favorites:', error);
-      throw error; // Re-throw the error for handling in the calling code
+        console.log(`SnippetID ${snippetIDToAdd} added to favorites for userID ${userID}`);
+    } else {
+        console.log(`SnippetID ${snippetIDToAdd} already exists in favorites for userID ${userID}`);
     }
+} catch (error) {
+    console.error('Error adding snippet to favorites:', error);
+    throw error; // Re-throw the error for handling in the calling code
+}
   };
   
   

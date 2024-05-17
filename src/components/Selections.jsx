@@ -57,7 +57,6 @@ export const Selections = (props) => {
         var buttons = document.getElementsByClassName('selection-button')
         for(let i = 0; i < buttons.length; i++) {
             if(i == selection) {
-
                 buttons[i].style.backgroundColor = 'var(--text)'
                 buttons[i].style.color = 'var(--bg)'
             }

@@ -6,18 +6,17 @@ import { loadFavorites } from '../../backend/loadFavorites'
 import { loadFavoriteSnippets } from '../../backend/loadFavoriteSnippets'
 
 import { HeaderNav } from '../components/HeaderNav'
-import { UserSelections } from '../components/UserSelections'
-import { UserDisplay } from '../components/UserDisplay'
-import { UserNav } from '../components/UserNav'
+import { UserSelections } from '../components/User/UserSelections'
+import { UserDisplay } from '../components/User/UserDisplay'
+import { UserNav } from '../components/User/UserNav'
 import { Footer } from '../components/Footer'
 
 export const UserHome = () => {
   const [ profile, setProfile ] = useLocalStorage('profile', localStorage.getItem('profile') ? localStorage.getItem('profile') : null);
   const [ favorites, setFavorites ] = useLocalStorage('favorites', localStorage.getItem('favorites') ? localStorage.getItem('favorites') : []);
   
-  const [selection, setSelection] = useState(null)
+  const [selection, setSelection] = useState(0)
   const [page, setPage] = useState({name:'userCreated', index:1})
-  const [allSnippets, setAllSnippets] = useState()
   const [snippets, setSnippets] = useState([])
   const [triggerUpdateFavorites, setTriggerUpdateFavorites] = useState(false)
 

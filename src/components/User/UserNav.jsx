@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import './Nav.css'
+import '../Nav.css'
 
 export const UserNav = (props) => {
     const {page, setPage, pageIndex, setSelection, snippets} = props 

@@ -15,13 +15,11 @@
 @media (orientation: landscape) {
   .main-body{
     width:100%;
-    height: 100%;
+    height: 70svh;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
-    
   }
 }
 

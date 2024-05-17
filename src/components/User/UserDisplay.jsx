@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import './Display.css'
+import '../Display.css'
 import "highlight.js/styles/github-dark.css";
-import { CodeBlock } from "./CodeBlock";
-import { useLocalStorage } from "@uidotdev/usehooks";
-import { addFavorite } from "../../backend/addFavorite";
-import { deleteFavorite } from "../../backend/deleteFavorite";
+import { CodeBlock } from "../CodeBlock";
+import { addFavorite } from "../../../backend/addFavorite";
+import { deleteFavorite } from "../../../backend/deleteFavorite";
 
 
 export const UserDisplay = (props) => {
@@ -20,16 +19,6 @@ export const UserDisplay = (props) => {
         navigator.clipboard.writeText(selection.code);
         console.log('code copied to clipboard')
     }    
-
-    function debounce(callback, delay) {
-        let timer
-        return function() {
-          clearTimeout(timer)
-          timer = setTimeout(() => {
-            callback();
-          }, delay)
-        }
-    }
     
     function handleFavorite() {
         console.log('handling favorite')

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import './Selections.css'
-import { dynamicSort } from "../Utility/Tools";
+import '../Selections.css'
+import { dynamicSort } from "../../Utility/Tools";
 
 
 export const UserSelections = (props) => {
