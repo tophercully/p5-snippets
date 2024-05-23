@@ -84,22 +84,16 @@ export const Selections = (props) => {
         setFilter(e.target.value)
     }
 
-    
-    
-
     function AllNames() {
         return (
             <div className="selections" id="selections">
                 {array.map((a, index) => {
                     if(a.name.toLowerCase().includes(filter.toLowerCase()) || a.tags.includes(filter.toLowerCase())) {
                         return(
-                            
                             <div className="selection-button" onClick={(e)=>handleClick(e, index)} key={index}>
                                 <h4 className="selection-name"  key={index}>{a.name}</h4>
                                 <p className="selection-author">{a.author}</p>
                             </div>
-                            
-                        
                         )  
                     }
                 })}

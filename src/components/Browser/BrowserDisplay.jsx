@@ -6,7 +6,7 @@ import { addFavorite } from "../../../backend/addFavorite";
 import { deleteFavorite } from "../../../backend/deleteFavorite";
 
 
-export const UserDisplay = (props) => {
+export const BrowserDisplay = (props) => {
     const {selection, favorites, setTriggerUpdateFavorites, profile} = props
     const [isFavorite, setIsFavorite] = useState(favorites.includes(selection))
     const [triggerToggleThisFavorite, setTriggerToggleThisFavorite] = useState(false)
@@ -56,6 +56,10 @@ export const UserDisplay = (props) => {
     if(selection) {
         return(
             <div className="display">
+                <div className="display-info">
+                    <h1 className="display-title">{selection.name}</h1>
+                    <p className="display-author">{selection.author}</p>
+                </div>
                 <CodeBlock language={language} code={selection.code} onClick={copyCode}/>
                 <div className="display-buttons">
                     <button className="edit-button"></button>

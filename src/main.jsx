@@ -8,6 +8,7 @@ import { Analytics } from '@vercel/analytics/react';
 import './index.css'
 import { UserHome } from './pages/UserHome.jsx'
 import { Home } from './pages/Home.jsx'
+import { Browser } from './pages/Browser.jsx'
 import { Builder } from './pages/Builder.jsx'
 import { useLocalStorage } from '@uidotdev/usehooks'
 
@@ -15,7 +16,7 @@ import { useLocalStorage } from '@uidotdev/usehooks'
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Browser />,
   },
   {
     path: "/profile",

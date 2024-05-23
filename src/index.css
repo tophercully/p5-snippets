@@ -68,9 +68,9 @@ body, html {
 
 #root{
   width: 100vw;
-  height: 70%;
+  height: 100%;
   margin: 0;
-  padding: 5vw;
+  padding: 1vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
