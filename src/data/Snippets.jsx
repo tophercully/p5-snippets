@@ -360,7 +360,14 @@ export const snippets = {
   palettes: [
     {
       name: "IGIG",
-      code: ["#D31826", "#F77834", "#FDC36D", "#008944", "#027ECE", "#6D1DB5"],
+      code: [
+        "#D31826",
+        "#F77834",
+        "#FDC36D",
+        "#008944",
+        "#027ECE",
+        "#6D1DB5",
+      ],
       tags: "colorful, bright, saturated, rainbow, red, orange, yellow, green, blue, purple",
       author: "Chris McCully",
     },
@@ -397,13 +404,27 @@ export const snippets = {
     },
     {
       name: "Dino",
-      code: ["#A1C470", "#62BCE0", "#937FA1", "#F1E696", "#CB4F5D", "#D2A87E"],
+      code: [
+        "#A1C470",
+        "#62BCE0",
+        "#937FA1",
+        "#F1E696",
+        "#CB4F5D",
+        "#D2A87E",
+      ],
       tags: "dull, natural, rich, flat, cool, desaturated, earthy, green, blue, purple, yellow, tan, brown, red, burgundy",
       author: "Chris McCully",
     },
     {
       name: "G",
-      code: ["#DC3B97", "#180732", "#067FC0", "#F40931", "#FF622F", "#9A88C8"],
+      code: [
+        "#DC3B97",
+        "#180732",
+        "#067FC0",
+        "#F40931",
+        "#FF622F",
+        "#9A88C8",
+      ],
       tags: "rich, neon, saturated, warm, saturated, blue, purple, yellow, red, modern",
       author: "Chris McCully",
     },
@@ -424,7 +445,14 @@ export const snippets = {
     },
     {
       name: "Gen2",
-      code: ["#423395", "#000c01", "#a90000", "#ff6900", "#00612b", "#968ef9"],
+      code: [
+        "#423395",
+        "#000c01",
+        "#a90000",
+        "#ff6900",
+        "#00612b",
+        "#968ef9",
+      ],
       tags: "rich, saturated, warm, dark, black, orange, lavender, purple, red, green",
       author: "Chris McCully",
     },

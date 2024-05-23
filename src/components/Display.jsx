@@ -28,7 +28,9 @@ export const Display = (props) => {
 
   function copyCode(e) {
     if (page == 3) {
-      navigator.clipboard.writeText(JSON.stringify(array[selection].code));
+      navigator.clipboard.writeText(
+        JSON.stringify(array[selection].code),
+      );
       console.log("code copied to clipboard");
     } else {
       navigator.clipboard.writeText(array[selection].code);
@@ -55,7 +57,12 @@ export const Display = (props) => {
   }
 
   function Palette() {
-    return <img src="array[selection].img" className="example-image"></img>;
+    return (
+      <img
+        src="array[selection].img"
+        className="example-image"
+      ></img>
+    );
   }
 
   const moveCursor = (e) => {
@@ -83,10 +90,16 @@ export const Display = (props) => {
 
   if (array[selection] && page != 3) {
     return (
-      <div className="display" onClick={copyCode}>
+      <div
+        className="display"
+        onClick={copyCode}
+      >
         {/* <h3 className="mouse-message" id="mouse-message" src="click.png">CLICK TO COPY :)</h3> */}
         {/* <br></br> */}
-        <CodeBlock language={language} code={array[selection].code} />
+        <CodeBlock
+          language={language}
+          code={array[selection].code}
+        />
         {/* <div className="copy-button" onClick={copyCode}><img className="copy-icon" src="/copy.svg"></img></div> */}
       </div>
     );
@@ -101,7 +114,10 @@ export const Display = (props) => {
             flexDirection: "column",
           }}
         >
-          <div className="copy-button-B" onClick={copyCode}>
+          <div
+            className="copy-button-B"
+            onClick={copyCode}
+          >
             <img
               className="copy-icon"
               src="/copy.svg"
@@ -112,7 +128,12 @@ export const Display = (props) => {
           </div>
           {array[selection].code.map((a) => {
             return (
-              <p className="swatch" style={{ backgroundColor: a }}>
+              <p
+                className="swatch"
+                style={{
+                  backgroundColor: a,
+                }}
+              >
                 {a}
               </p>
             );
@@ -126,7 +147,10 @@ export const Display = (props) => {
       <div className="display">
         <p
           className="error-display"
-          style={{ color: "#f5f5f5", justifySelf: "center" }}
+          style={{
+            color: "#f5f5f5",
+            justifySelf: "center",
+          }}
         >
           error
         </p>

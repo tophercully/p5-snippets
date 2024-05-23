@@ -6,8 +6,11 @@ import { addFavorite } from "../../../backend/addFavorite";
 import { deleteFavorite } from "../../../backend/deleteFavorite";
 
 export const UserDisplay = (props) => {
-  const { selection, favorites, setTriggerUpdateFavorites, profile } = props;
-  const [isFavorite, setIsFavorite] = useState(favorites.includes(selection));
+  const { selection, favorites, setTriggerUpdateFavorites, profile } =
+    props;
+  const [isFavorite, setIsFavorite] = useState(
+    favorites.includes(selection),
+  );
   const [triggerToggleThisFavorite, setTriggerToggleThisFavorite] =
     useState(false);
   console.log("favorite?", isFavorite);
@@ -62,7 +65,10 @@ export const UserDisplay = (props) => {
         />
         <div className="display-buttons">
           <button className="edit-button"></button>
-          <button className="favorite-button" onClick={handleFavorite}>
+          <button
+            className="favorite-button"
+            onClick={handleFavorite}
+          >
             {isFavorite ? "unfavorite" : "favorite"}
           </button>
         </div>
@@ -73,7 +79,10 @@ export const UserDisplay = (props) => {
       <div className="display">
         <p
           className="error-display"
-          style={{ color: "#f5f5f5", justifySelf: "center" }}
+          style={{
+            color: "#f5f5f5",
+            justifySelf: "center",
+          }}
         >
           error
         </p>

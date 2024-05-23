@@ -6,15 +6,21 @@ import Editor from "@monaco-editor/react";
 export const SnippetBuilder = (props) => {
   const [user, setUser] = useLocalStorage(
     "user",
-    localStorage.getItem("user") ? localStorage.getItem("user") : null,
+    localStorage.getItem("user") ?
+      localStorage.getItem("user")
+    : null,
   );
   const [profile, setProfile] = useLocalStorage(
     "profile",
-    localStorage.getItem("profile") ? localStorage.getItem("profile") : null,
+    localStorage.getItem("profile") ?
+      localStorage.getItem("profile")
+    : null,
   );
   const [loggedIn, setLoggedIn] = useLocalStorage(
     "loggedIn",
-    localStorage.getItem("loggedIn") ? localStorage.getItem("loggedIn") : false,
+    localStorage.getItem("loggedIn") ?
+      localStorage.getItem("loggedIn")
+    : false,
   );
   const [code, setCode] = useState();
   const [snippet, setSnippet] = useState({

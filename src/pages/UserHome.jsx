@@ -14,17 +14,25 @@ import { Footer } from "../components/Footer";
 export const UserHome = () => {
   const [profile, setProfile] = useLocalStorage(
     "profile",
-    localStorage.getItem("profile") ? localStorage.getItem("profile") : null,
+    localStorage.getItem("profile") ?
+      localStorage.getItem("profile")
+    : null,
   );
   const [favorites, setFavorites] = useLocalStorage(
     "favorites",
-    localStorage.getItem("favorites") ? localStorage.getItem("favorites") : [],
+    localStorage.getItem("favorites") ?
+      localStorage.getItem("favorites")
+    : [],
   );
 
   const [selection, setSelection] = useState(0);
-  const [page, setPage] = useState({ name: "userCreated", index: 1 });
+  const [page, setPage] = useState({
+    name: "userCreated",
+    index: 1,
+  });
   const [snippets, setSnippets] = useState([]);
-  const [triggerUpdateFavorites, setTriggerUpdateFavorites] = useState(false);
+  const [triggerUpdateFavorites, setTriggerUpdateFavorites] =
+    useState(false);
 
   console.log("favorites", favorites);
   //update favorites list when triggered or on page change
@@ -60,7 +68,11 @@ export const UserHome = () => {
   return (
     <div className="user-home-container">
       <HeaderNav />
-      <UserNav page={page} setPage={setPage} setSelection={setSelection} />
+      <UserNav
+        page={page}
+        setPage={setPage}
+        setSelection={setSelection}
+      />
       <div className="main-body">
         <UserSelections
           selection={selection}

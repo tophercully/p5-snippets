@@ -9,15 +9,21 @@ import { newUser } from "../../backend/newUser";
 export const HeaderNav = (props) => {
   const [user, setUser] = useLocalStorage(
     "user",
-    localStorage.getItem("user") ? localStorage.getItem("user") : null,
+    localStorage.getItem("user") ?
+      localStorage.getItem("user")
+    : null,
   );
   const [profile, setProfile] = useLocalStorage(
     "profile",
-    localStorage.getItem("profile") ? localStorage.getItem("profile") : null,
+    localStorage.getItem("profile") ?
+      localStorage.getItem("profile")
+    : null,
   );
   const [loggedIn, setLoggedIn] = useLocalStorage(
     "loggedIn",
-    localStorage.getItem("loggedIn") ? localStorage.getItem("loggedIn") : false,
+    localStorage.getItem("loggedIn") ?
+      localStorage.getItem("loggedIn")
+    : false,
   );
 
   const login = useGoogleLogin({
@@ -83,7 +89,10 @@ export const HeaderNav = (props) => {
   // console.log(profile)
   return (
     <div className="header-nav">
-      <a className="title-anchor" href="/">
+      <a
+        className="title-anchor"
+        href="/"
+      >
         <h1 className="title">SNIPPETS</h1>
       </a>
       <div className="profile-button">

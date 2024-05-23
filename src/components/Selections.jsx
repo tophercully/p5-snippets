@@ -71,7 +71,9 @@ export const Selections = (props) => {
       (event) => {
         debounce(() => {
           console.log("scrolling stopped");
-          setScrollPos(document.getElementById("selections").scrollTop);
+          setScrollPos(
+            document.getElementById("selections").scrollTop,
+          );
         }, 100);
       },
       { once: true },
@@ -88,7 +90,10 @@ export const Selections = (props) => {
 
   function AllNames() {
     return (
-      <div className="selections" id="selections">
+      <div
+        className="selections"
+        id="selections"
+      >
         {array.map((a, index) => {
           if (
             a.name.toLowerCase().includes(filter.toLowerCase()) ||
@@ -100,7 +105,10 @@ export const Selections = (props) => {
                 onClick={(e) => handleClick(e, index)}
                 key={index}
               >
-                <h4 className="selection-name" key={index}>
+                <h4
+                  className="selection-name"
+                  key={index}
+                >
                   {a.name}
                 </h4>
                 <p className="selection-author">{a.author}</p>
@@ -114,7 +122,10 @@ export const Selections = (props) => {
 
   function AllColors() {
     return (
-      <div className="selections" id="selections">
+      <div
+        className="selections"
+        id="selections"
+      >
         {array.map((a, index) => {
           if (
             a.name.toLowerCase().includes(filter.toLowerCase()) ||
@@ -126,7 +137,10 @@ export const Selections = (props) => {
                 onClick={(e) => handleClick(e, index)}
                 key={index}
               >
-                <h4 className="selection-name" key={index}>
+                <h4
+                  className="selection-name"
+                  key={index}
+                >
                   {a.name}
                 </h4>
 
@@ -139,7 +153,10 @@ export const Selections = (props) => {
                         <div
                           className="pal-block"
                           key={indexB}
-                          style={{ backgroundColor: col, width: "2vw" }}
+                          style={{
+                            backgroundColor: col,
+                            width: "2vw",
+                          }}
                         ></div>
                       );
                     } finally {

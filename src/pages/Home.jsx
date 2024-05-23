@@ -16,7 +16,11 @@ export const Home = () => {
       <div className="home-container">
         {/* <h1 className='title'>SNIPPETS FOR ART</h1> */}
         <HeaderNav />
-        <Nav page={page} setPage={setPage} setSelection={setSelection} />
+        <Nav
+          page={page}
+          setPage={setPage}
+          setSelection={setSelection}
+        />
         <div className="main-body">
           <Selections
             selection={selection}
@@ -25,7 +29,10 @@ export const Home = () => {
             snippets={snippets}
           />
           <br></br>
-          <Display selection={selection} page={page} />
+          <Display
+            selection={selection}
+            page={page}
+          />
         </div>
         <Footer />
       </div>

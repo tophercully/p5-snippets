@@ -20,7 +20,10 @@ export default {
       bebasNeue: ["Bebas Neue", "sans-serif"],
       neueMontreal: ["PP Neue Montreal", "sans-serif"],
       neueMontrealBold: ["PP Neue Montreal Bold", "sans-serif"],
-      neueMontrealBoldItalic: ["PP Neue Montreal Bold Italic", "sans-serif"],
+      neueMontrealBoldItalic: [
+        "PP Neue Montreal Bold Italic",
+        "sans-serif",
+      ],
       neueMontrealBook: ["PP Neue Montreal Book", "sans-serif"],
     },
   },

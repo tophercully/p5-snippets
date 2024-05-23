@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../Selections.css";
+// import "../Selections.css";
 import { dynamicSort } from "../../Utility/Tools";
 
 export const UserSelections = (props) => {
@@ -48,7 +48,9 @@ export const UserSelections = (props) => {
       (event) => {
         debounce(() => {
           console.log("scrolling stopped");
-          setScrollPos(document.getElementById("selections").scrollTop);
+          setScrollPos(
+            document.getElementById("selections").scrollTop,
+          );
         }, 100);
       },
       { once: true },
@@ -66,7 +68,10 @@ export const UserSelections = (props) => {
   function AllNames() {
     if (array) {
       return (
-        <div className="selections" id="selections">
+        <div
+          className="selections"
+          id="selections"
+        >
           {array.map((a, index) => {
             if (
               a.name.toLowerCase().includes(filter.toLowerCase()) ||
@@ -74,11 +79,21 @@ export const UserSelections = (props) => {
             ) {
               return (
                 <div
-                  className="selection-button"
+                  className="
+                  selection-button
+                  hover:color-bgc
+                  w-full
+                  border-[1px]
+                  border-black
+                  hover:bg-text
+                  "
                   onClick={(e) => handleClick(e, index)}
                   key={index}
                 >
-                  <h4 className="selection-name" key={index}>
+                  <h4
+                    className="selection-name"
+                    key={index}
+                  >
                     {a.name}
                   </h4>
                   <p className="selection-author">{a.author}</p>
@@ -90,7 +105,10 @@ export const UserSelections = (props) => {
       );
     } else {
       return (
-        <div className="selections" id="selections">
+        <div
+          className="selections"
+          id="selections"
+        >
           <div className="selection-button">
             <h4 className="selection-name">Nothing here yet</h4>
           </div>

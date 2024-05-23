@@ -18,7 +18,9 @@ export const updateSnippet = async (snippetIDToUpdate, newParams) => {
             WHERE SnippetID = ${snippetIDToUpdate};
         `;
 
-    console.log(`Snippet with SnippetID ${snippetIDToUpdate} updated`);
+    console.log(
+      `Snippet with SnippetID ${snippetIDToUpdate} updated`,
+    );
   };
 
   await updateRow();

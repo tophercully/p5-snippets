@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../Selections.css";
+// import "../Selections.css";
 import { dynamicSort } from "../../Utility/Tools";
 
 export const BrowserSelections = (props) => {
@@ -53,7 +53,9 @@ export const BrowserSelections = (props) => {
       (event) => {
         debounce(() => {
           console.log("scrolling stopped");
-          setScrollPos(document.getElementById("selections").scrollTop);
+          setScrollPos(
+            document.getElementById("selections").scrollTop,
+          );
         }, 100);
       },
       { once: true },
@@ -70,7 +72,10 @@ export const BrowserSelections = (props) => {
   function AllNames() {
     if (array) {
       return (
-        <div className="selections" id="selections">
+        <div
+          className="selections"
+          id="selections"
+        >
           {array.map((a, index) => {
             if (
               a.name.toLowerCase().includes(filter.toLowerCase()) ||
@@ -78,30 +83,40 @@ export const BrowserSelections = (props) => {
             ) {
               return (
                 <div
-                  className="selection-button"
+                  className="selection-button group flex w-full flex-col justify-between border-[1px] border-black px-1 py-2 align-top hover:bg-text hover:text-bgc active:bg-primary"
                   onClick={(e) => handleClick(e, index)}
                   key={index}
                 >
-                  <div className="selection-info">
-                    <h4 className="selection-name" key={index}>
+                  <div className="flex h-full w-full flex-1 justify-end align-middle group-hover:invert">
+                    <h4
+                      className="m-0 w-2/3 flex-1 text-nowrap pr-[1vh] font-satoshi text-[1.5em] font-bold text-text"
+                      key={index}
+                    >
                       {a.name}
                     </h4>
-                    <div className="selection-favorites">
+                    <div className="flex h-full w-full justify-end align-middle">
                       <img
-                        className="selection-favorites-icon"
+                        className="mr-1 flex h-4 flex-col justify-center self-center align-middle"
                         src="heart-empty.svg"
                       ></img>
                       <p
-                        className="selection-favorites-count"
-                        style={{ margin: "0" }}
+                        className="m-0 self-center font-satoshi text-sm font-normal text-text"
+                        style={{
+                          margin: "0",
+                        }}
                       >
-                        200
+                        {a.favoriteCount}
                       </p>
                     </div>
                   </div>
-                  <div className="selection-author">
+                  <div className="flex justify-end align-middle">
                     {/* <img className="selection-author-icon" src="author.svg"></img> */}
-                    <p className="selection-author" style={{ margin: "0" }}>
+                    <p
+                      className="flex justify-end align-middle"
+                      style={{
+                        margin: "0",
+                      }}
+                    >
                       {a.author}
                     </p>
                   </div>
@@ -113,7 +128,10 @@ export const BrowserSelections = (props) => {
       );
     } else {
       return (
-        <div className="selections" id="selections">
+        <div
+          className="selections"
+          id="selections"
+        >
           <div className="selection-button">
             <h4 className="selection-name">Nothing here yet</h4>
           </div>

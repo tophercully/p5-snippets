@@ -1,7 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -30,15 +33,21 @@ const router = createBrowserRouter([
 const App = () => {
   const [user, setUser] = useLocalStorage(
     "user",
-    localStorage.getItem("user") ? localStorage.getItem("user") : null,
+    localStorage.getItem("user") ?
+      localStorage.getItem("user")
+    : null,
   );
   const [profile, setProfile] = useLocalStorage(
     "profile",
-    localStorage.getItem("profile") ? localStorage.getItem("profile") : null,
+    localStorage.getItem("profile") ?
+      localStorage.getItem("profile")
+    : null,
   );
   const [loggedIn, setLoggedIn] = useLocalStorage(
     "loggedIn",
-    localStorage.getItem("loggedIn") ? localStorage.getItem("loggedIn") : false,
+    localStorage.getItem("loggedIn") ?
+      localStorage.getItem("loggedIn")
+    : false,
   );
 
   return (

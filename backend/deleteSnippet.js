@@ -12,7 +12,9 @@ export const deleteSnippet = async (snippetIDToDelete) => {
             WHERE SnippetID = ${snippetIDToDelete};
         `;
 
-    console.log(`Snippet with SnippetID ${snippetIDToDelete} deleted`);
+    console.log(
+      `Snippet with SnippetID ${snippetIDToDelete} deleted`,
+    );
   };
 
   await deleteRow();

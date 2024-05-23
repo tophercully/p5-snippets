@@ -1,6 +1,7 @@
 {
   "experimentalTernaries": true,
-  "jsonRecursiveSort": true,
   "plugins": ["prettier-plugin-tailwindcss"],
-  "tailwindFunctions": ["clsx"]
+  "tailwindFunctions": ["clsx"],
+  "printWidth": 70,
+  "singleAttributePerLine": true
 }

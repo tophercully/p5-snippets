@@ -28,28 +28,48 @@ export const BrowserNav = (props) => {
     <div className="navBar">
       <button
         className="nav-button"
-        onClick={() => handleClick({ name: "all", index: 0 })}
+        onClick={() =>
+          handleClick({
+            name: "all",
+            index: 0,
+          })
+        }
         key="0"
       >
         All
       </button>
       <button
         className="nav-button"
-        onClick={() => handleClick({ name: "js", index: 1 })}
+        onClick={() =>
+          handleClick({
+            name: "js",
+            index: 1,
+          })
+        }
         key="1"
       >
         Vanilla JS
       </button>
       <button
         className="nav-button"
-        onClick={() => handleClick({ name: "p5", index: 2 })}
+        onClick={() =>
+          handleClick({
+            name: "p5",
+            index: 2,
+          })
+        }
         key="2"
       >
         p5.js
       </button>
       <button
         className="nav-button"
-        onClick={() => handleClick({ name: "glsl", index: 3 })}
+        onClick={() =>
+          handleClick({
+            name: "glsl",
+            index: 3,
+          })
+        }
         key="3"
       >
         GLSL

@@ -31,7 +31,11 @@
   height: 50%;
   aspect-ratio: 1/1;
   align-self: flex-end;
-  background-color: color-mix(in srgb, var(--text) 10%, var(--bg) 90%);
+  background-color: color-mix(
+    in srgb,
+    var(--text) 10%,
+    var(--bg) 90%
+  );
   display: flex;
   justify-content: center;
   align-items: center;

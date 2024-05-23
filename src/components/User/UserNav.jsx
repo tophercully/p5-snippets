@@ -28,14 +28,24 @@ export const UserNav = (props) => {
     <div className="navBar">
       <button
         className="nav-button"
-        onClick={() => handleClick({ name: "userCreated", index: 0 })}
+        onClick={() =>
+          handleClick({
+            name: "userCreated",
+            index: 0,
+          })
+        }
         key="0"
       >
         My Snippets
       </button>
       <button
         className="nav-button"
-        onClick={() => handleClick({ name: "favorites", index: 1 })}
+        onClick={() =>
+          handleClick({
+            name: "favorites",
+            index: 1,
+          })
+        }
         key="1"
       >
         Favorites

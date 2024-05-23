@@ -10,12 +10,18 @@ import { useLocalStorage } from "@uidotdev/usehooks";
 export const Browser = () => {
   const [snippets, setSnippets] = useState([]);
   const [selection, setSelection] = useState(snippets[0]);
-  const [page, setPage] = useState({ name: "all", index: 0 });
+  const [page, setPage] = useState({
+    name: "all",
+    index: 0,
+  });
   const [favorites, setFavorites] = useLocalStorage(
     "favorites",
-    localStorage.getItem("favorites") ? localStorage.getItem("favorites") : [],
+    localStorage.getItem("favorites") ?
+      localStorage.getItem("favorites")
+    : [],
   );
-  const [triggerUpdateFavorites, setTriggerUpdateFavorites] = useState(false);
+  const [triggerUpdateFavorites, setTriggerUpdateFavorites] =
+    useState(false);
 
   //fetches all snippets from library
   useEffect(() => {
@@ -81,7 +87,11 @@ export const Browser = () => {
   return (
     <div className="flex h-full w-full flex-col">
       <HeaderNav />
-      <BrowserNav page={page} setPage={setPage} setSelection={setSelection} />
+      <BrowserNav
+        page={page}
+        setPage={setPage}
+        setSelection={setSelection}
+      />
       <div className="flex h-full w-full flex-row">
         <BrowserSelections
           selection={selection}
