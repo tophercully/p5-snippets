@@ -1,10 +1,10 @@
-pre{
-    background: none;
+pre {
+  background: none;
 }
 
-pre code.hljs{
-    background-color: none;
-    background: none;
+pre code.hljs {
+  background-color: none;
+  background: none;
 
-    font-size: 1.25em;
+  font-size: 1.25em;
 }

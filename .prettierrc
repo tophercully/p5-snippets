@@ -1,0 +1,6 @@
+{
+  "experimentalTernaries": true,
+  "jsonRecursiveSort": true,
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindFunctions": ["clsx"]
+}

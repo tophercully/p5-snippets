@@ -1,131 +1,136 @@
 import React, { useEffect, useState } from "react";
-import './Display.css'
+import "./Display.css";
 import "highlight.js/styles/github-dark.css";
 import { CodeBlock } from "./CodeBlock";
 import { snippets } from "../data/Snippets";
 
 export const Display = (props) => {
-    const {selection, page} = props
+  const { selection, page } = props;
 
-    let array = snippets.p5
-    let language = 'javascript'
-    if(page == 0) {
-        //p5.js
-        array = snippets.js
-    } else if(page == 1) {
-        //glsl
-        array = snippets.p5
-    } else if(page == 2) {
-        //colors
-        array = snippets.glsl
-        language = 'glsl'
+  let array = snippets.p5;
+  let language = "javascript";
+  if (page == 0) {
+    //p5.js
+    array = snippets.js;
+  } else if (page == 1) {
+    //glsl
+    array = snippets.p5;
+  } else if (page == 2) {
+    //colors
+    array = snippets.glsl;
+    language = "glsl";
+  } else {
+    //colors
+    array = snippets.palettes;
+  }
+
+  array.sort(dynamicSort("name"));
+
+  function copyCode(e) {
+    if (page == 3) {
+      navigator.clipboard.writeText(JSON.stringify(array[selection].code));
+      console.log("code copied to clipboard");
     } else {
-        //colors
-        array = snippets.palettes
+      navigator.clipboard.writeText(array[selection].code);
+      console.log("code copied to clipboard");
     }
+  }
 
-    array.sort(dynamicSort('name'))
-
-    
-    
-    function copyCode(e) {
-        if(page == 3) {
-            navigator.clipboard.writeText(JSON.stringify(array[selection].code));
-            console.log('code copied to clipboard')
-        } else {
-            navigator.clipboard.writeText(array[selection].code);
-            console.log('code copied to clipboard')
-        }
+  function dynamicSort(property) {
+    var sortOrder = 1;
+    if (property[0] === "-") {
+      sortOrder = -1;
+      property = property.substr(1);
     }
-    
+    return function (a, b) {
+      /* next line works with strings and numbers,
+       * and you may want to customize it to your needs
+       */
+      var result =
+        a[property] < b[property] ? -1
+        : a[property] > b[property] ? 1
+        : 0;
+      return result * sortOrder;
+    };
+  }
 
-    function dynamicSort(property) {
-        var sortOrder = 1;
-        if(property[0] === "-") {
-            sortOrder = -1;
-            property = property.substr(1);
-        }
-        return function (a,b) {
-            /* next line works with strings and numbers, 
-             * and you may want to customize it to your needs
-             */
-            var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
-            return result * sortOrder;
-        }
-    }
-    
-    function Palette() {
-        return(
-            <img src="array[selection].img" className="example-image"></img>
-        )
-    }
+  function Palette() {
+    return <img src="array[selection].img" className="example-image"></img>;
+  }
 
-    const moveCursor = (e) => {
-        const mouseY = e.clientY;
-        const mouseX = e.clientX;
-        
-        // debounce(()=>{console.log(mouseX, mouseY)}, 10)
-        console.log(mouseX, mouseY)
-        
+  const moveCursor = (e) => {
+    const mouseY = e.clientY;
+    const mouseX = e.clientX;
 
-        setMousePos({
-            x: mouseX,
-            y: mouseY,
-        })
-    }
+    // debounce(()=>{console.log(mouseX, mouseY)}, 10)
+    console.log(mouseX, mouseY);
 
-    function debounce(callback, delay) {
-        let timer
-        return function() {
-          clearTimeout(timer)
-          timer = setTimeout(() => {
-            callback();
-          }, delay)
-        }
-      }
-    
-    
-    
+    setMousePos({
+      x: mouseX,
+      y: mouseY,
+    });
+  };
 
-    if(array[selection] && page != 3) {
-        return(
-            <div className="display" onClick={copyCode}>
-                {/* <h3 className="mouse-message" id="mouse-message" src="click.png">CLICK TO COPY :)</h3> */}
-                {/* <br></br> */}
-                <CodeBlock language={language} code={array[selection].code}/>
-                {/* <div className="copy-button" onClick={copyCode}><img className="copy-icon" src="/copy.svg"></img></div> */}
-            </div>
+  function debounce(callback, delay) {
+    let timer;
+    return function () {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        callback();
+      }, delay);
+    };
+  }
 
-        )
-    } else if(array[selection] && page == 3) {
-        return(
-            <>
-            <div className="display" key={page} onClick={copyCode} style={{
-                flexDirection:'column'
-            }}>
-                <div 
-                    className="copy-button-B" 
-                    onClick={copyCode}>
-                    <img 
-                    className="copy-icon" 
-                    src="/copy.svg" 
-                    style={{
-                        alignSelf:'flex-end'
-                    }}></img>
-                </div>
-                {array[selection].code.map((a)=> {
-                    return <p className="swatch" style={{backgroundColor:a}}>{a}</p>
-                })}
-                <br></br>
-            </div>
-            </>
-        )
-    } else {
-        return(
-            <div className="display">
-            <p className="error-display" style={{color:'#f5f5f5', justifySelf:'center'}}>error</p>
+  if (array[selection] && page != 3) {
+    return (
+      <div className="display" onClick={copyCode}>
+        {/* <h3 className="mouse-message" id="mouse-message" src="click.png">CLICK TO COPY :)</h3> */}
+        {/* <br></br> */}
+        <CodeBlock language={language} code={array[selection].code} />
+        {/* <div className="copy-button" onClick={copyCode}><img className="copy-icon" src="/copy.svg"></img></div> */}
+      </div>
+    );
+  } else if (array[selection] && page == 3) {
+    return (
+      <>
+        <div
+          className="display"
+          key={page}
+          onClick={copyCode}
+          style={{
+            flexDirection: "column",
+          }}
+        >
+          <div className="copy-button-B" onClick={copyCode}>
+            <img
+              className="copy-icon"
+              src="/copy.svg"
+              style={{
+                alignSelf: "flex-end",
+              }}
+            ></img>
+          </div>
+          {array[selection].code.map((a) => {
+            return (
+              <p className="swatch" style={{ backgroundColor: a }}>
+                {a}
+              </p>
+            );
+          })}
+          <br></br>
         </div>
-        
-        )
-    }
-}
+      </>
+    );
+  } else {
+    return (
+      <div className="display">
+        <p
+          className="error-display"
+          style={{ color: "#f5f5f5", justifySelf: "center" }}
+        >
+          error
+        </p>
+      </div>
+    );
+  }
+};

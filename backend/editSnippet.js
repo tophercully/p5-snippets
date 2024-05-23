@@ -1,13 +1,13 @@
 import { createPool } from "@vercel/postgres";
 
-console.log(import.meta.env.VITE_SNIPPET_URL)
+console.log(import.meta.env.VITE_SNIPPET_URL);
 const pool = createPool({
-    connectionString: import.meta.env.VITE_SNIPPET_URL ,
-})
+  connectionString: import.meta.env.VITE_SNIPPET_URL,
+});
 
 export const updateSnippet = async (snippetIDToUpdate, newParams) => {
-    const updateRow = async () => {
-        await pool.sql`
+  const updateRow = async () => {
+    await pool.sql`
             UPDATE Snippets
             SET 
                 Name = ${newParams.name},
@@ -18,8 +18,8 @@ export const updateSnippet = async (snippetIDToUpdate, newParams) => {
             WHERE SnippetID = ${snippetIDToUpdate};
         `;
 
-        console.log(`Snippet with SnippetID ${snippetIDToUpdate} updated`);
-    };
+    console.log(`Snippet with SnippetID ${snippetIDToUpdate} updated`);
+  };
 
-    await updateRow();
+  await updateRow();
 };

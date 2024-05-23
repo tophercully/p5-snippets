@@ -1,7 +1,5 @@
-
-
-.home-container{
-  width:100%;
+.home-container {
+  width: 100%;
   height: 100%;
   max-width: 90vw;
   display: flex;
@@ -9,12 +7,11 @@
   /* flex-wrap: wrap; */
   justify-content: center;
   align-items: center;
-
 }
 
 @media (orientation: landscape) {
-  .main-body{
-    width:100%;
+  .main-body {
+    width: 100%;
     height: 70svh;
     display: flex;
     flex-direction: row;
@@ -24,8 +21,8 @@
 }
 
 @media (orientation: portrait) {
-  .main-body{
-    width:100%;
+  .main-body {
+    width: 100%;
     height: fit-content;
     display: flex;
     flex-direction: column;

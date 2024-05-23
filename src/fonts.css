@@ -1,0 +1,24 @@
+@font-face {
+  font-family: Bebas Neue;
+  src: url(../public/BebasNeue-Regular.otf);
+}
+@font-face {
+  font-family: PP Neue Montreal;
+  src: url(../public/PPNeueMontreal-Regular.otf);
+}
+@font-face {
+  font-family: PP Neue Montreal Bold;
+  src: url(../public/PPNeueMontreal-Bold.otf);
+}
+@font-face {
+  font-family: PP Neue Montreal Bold Italic;
+  src: url(../public/PPNeueMontreal-BoldItalic.otf);
+}
+@font-face {
+  font-family: PP Neue Montreal Book;
+  src: url(../public/PPNeueMontreal-Book.otf);
+}
+@font-face {
+  font-family: Satoshi;
+  src: url(../public/Satoshi-Variable.ttf);
+}

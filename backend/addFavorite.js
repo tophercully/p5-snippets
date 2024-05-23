@@ -1,8 +1,8 @@
 import { createPool } from "@vercel/postgres";
 
 const pool = createPool({
-    connectionString: import.meta.env.VITE_SNIPPET_URL ,
-})
+  connectionString: import.meta.env.VITE_SNIPPET_URL,
+});
 
 export const addFavorite = async (userID, snippetIDToAdd) => {
   try {
@@ -18,19 +18,20 @@ export const addFavorite = async (userID, snippetIDToAdd) => {
 
     // If the pair doesn't exist, create it
     if (!favoriteExists) {
-        await pool.sql`
+      await pool.sql`
             INSERT INTO favorites (userID, snippetID)
             VALUES (${userID}, ${snippetIDToAdd});
         `;
-        console.log(`SnippetID ${snippetIDToAdd} added to favorites for userID ${userID}`);
+      console.log(
+        `SnippetID ${snippetIDToAdd} added to favorites for userID ${userID}`,
+      );
     } else {
-        console.log(`SnippetID ${snippetIDToAdd} already exists in favorites for userID ${userID}`);
+      console.log(
+        `SnippetID ${snippetIDToAdd} already exists in favorites for userID ${userID}`,
+      );
     }
-} catch (error) {
-    console.error('Error adding snippet to favorites:', error);
+  } catch (error) {
+    console.error("Error adding snippet to favorites:", error);
     throw error; // Re-throw the error for handling in the calling code
-}
-  };
-  
-  
-
+  }
+};

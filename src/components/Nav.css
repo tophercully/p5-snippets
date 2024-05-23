@@ -1,39 +1,40 @@
-.navBar{
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
+.navBar {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
 
-    flex-grow: 1;
-    border-left: 3px solid var(--text);
-    border-right: 3px solid var(--text);
-    box-sizing: border-box;
-    
+  flex-grow: 1;
+  border-left: 3px solid var(--text);
+  border-right: 3px solid var(--text);
+  box-sizing: border-box;
 }
 
-.nav-button{
-    all:unset;
-    width: 100%;
-    height: 4vh;
+.nav-button {
+  all: unset;
+  width: 100%;
+  height: 4vh;
 
-    font-family: Bebas Neue;
-    font-size: 200%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  font-family: Bebas Neue;
+  font-size: 200%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    background-color: var(--bg);
-    border: 1px solid black;
+  background-color: var(--bg);
+  border: 1px solid black;
 
-    transition: flex 250ms ease-out, background-color 150ms linear;
+  transition:
+    flex 250ms ease-out,
+    background-color 150ms linear;
 }
 
-.nav-button:hover{
-    background-color: red;
-    color: var(--text);
-    cursor: pointer;
+.nav-button:hover {
+  background-color: red;
+  color: var(--text);
+  cursor: pointer;
 }
-.nav-button:active{
-    background-color: #304BD3;
-    color: #252525;
+.nav-button:active {
+  background-color: #304bd3;
+  color: #252525;
 }
