@@ -7,14 +7,14 @@ const pool = createPool({
 export const addFavorite = async (userID, snippetIDToAdd) => {
   try {
     // Check if the exact pair exists
-    const existingInstances = await pool.sql`
-        SELECT COUNT(*)
+    const { rows } = await pool.sql`
+        SELECT COUNT(*) as count
         FROM favorites
         WHERE userID = ${userID}
         AND snippetID = ${snippetIDToAdd};
     `;
 
-    const favoriteExists = existingInstances[0].count > 0;
+    const favoriteExists = rows[0].count > 0;
 
     // If the pair doesn't exist, create it
     if (!favoriteExists) {

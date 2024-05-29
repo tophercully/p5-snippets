@@ -6,23 +6,29 @@ const pool = createPool({
 
 export const loadAllSnippets = async () => {
   const { rows } = await pool.sql`
-        SELECT 
-            Snippets.snippetid, 
-            Snippets.name, 
-            Snippets.code, 
-            Snippets.tags, 
-            Snippets.author, 
-            Snippets.authorid,
-            COALESCE(fav_counts.favoriteCount, 0) AS favoriteCount
-        FROM Snippets
-        LEFT JOIN (
-            SELECT snippetid, COUNT(*) AS favoriteCount
-            FROM favorites
-            GROUP BY snippetid
-        ) AS fav_counts
-        ON Snippets.snippetid = fav_counts.snippetid;
-    `;
+    WITH FavoriteCounts AS (
+        SELECT snippetid, COUNT(*) AS favoriteCount
+        FROM favorites
+        GROUP BY snippetid
+    )
+    SELECT 
+        Snippets.snippetid, 
+        Snippets.name, 
+        Snippets.code, 
+        Snippets.tags, 
+        Snippets.author, 
+        Snippets.authorid,
+        COALESCE(FavoriteCounts.favoriteCount, 0) AS favoriteCount
+    FROM Snippets
+    LEFT JOIN FavoriteCounts
+    ON Snippets.snippetid = FavoriteCounts.snippetid;
+`;
 
+  const existingFavorites =
+    localStorage.getItem("favorites") ?
+      JSON.parse(localStorage.getItem("favorites"))
+    : [];
+  console.log(existingFavorites + existingFavorites.typeof);
   const snippetsArray = rows.map((row) => ({
     snippetID: row.snippetid,
     name: row.name,
@@ -31,6 +37,10 @@ export const loadAllSnippets = async () => {
     author: row.author,
     authorID: Math.floor(row.authorid),
     favoriteCount: row.favoritecount,
+    isFavorite: (existingFavorites.typeof =
+      "array" ?
+        existingFavorites.some((e) => e.snippetID === row.snippetID)
+      : false),
   }));
 
   return snippetsArray;

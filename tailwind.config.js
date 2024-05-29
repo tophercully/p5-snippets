@@ -14,6 +14,13 @@ export default {
         secondary: "#FE1301",
         text: "#161616",
       },
+      cursor: {
+        clickhere: "url(/public/click.png), pointer",
+        enjoy: "url(/public/enjoy.png), pointer",
+      },
+      backgroundSize: {
+        "2/3": "66%",
+      },
     },
     fontFamily: {
       satoshi: ["Satoshi", "sans-serif"],

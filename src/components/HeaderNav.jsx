@@ -60,7 +60,11 @@ export const HeaderNav = (props) => {
             setProfile(res.data);
           })
           .catch((err) => console.log(err));
-        console.log("set profile data");
+        console.log(
+          "set profile data" + profile ? profile : (
+            " but no profile data to set"
+          ),
+        );
       }
     };
 

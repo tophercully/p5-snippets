@@ -15,3 +15,13 @@ export const dynamicSort = (property) => {
     return result * sortOrder;
   };
 };
+
+export const debounce = (callback, delay) => {
+  let timer;
+  return function () {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      callback();
+    }, delay);
+  };
+};

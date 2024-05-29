@@ -6,6 +6,7 @@ import { BrowserNav } from "../components/Browser/BrowserNav";
 import { BrowserSelections } from "../components/Browser/BrowserSelections";
 import { BrowserDisplay } from "../components/Browser/BrowserDisplay";
 import { useLocalStorage } from "@uidotdev/usehooks";
+import { loadFavorites } from "../../backend/loadFavorites";
 
 export const Browser = () => {
   const [snippets, setSnippets] = useState([]);
@@ -14,14 +15,19 @@ export const Browser = () => {
     name: "all",
     index: 0,
   });
+  const [profile, setProfile] = useLocalStorage(
+    "profile",
+    localStorage.getItem("profile") ?
+      localStorage.getItem("profile")
+    : null,
+  );
   const [favorites, setFavorites] = useLocalStorage(
     "favorites",
     localStorage.getItem("favorites") ?
       localStorage.getItem("favorites")
     : [],
+    3,
   );
-  const [triggerUpdateFavorites, setTriggerUpdateFavorites] =
-    useState(false);
 
   //fetches all snippets from library
   useEffect(() => {
@@ -79,10 +85,10 @@ export const Browser = () => {
       console.log(response);
       setFavorites(response);
     }
-    if (triggerUpdateFavorites || page.name == "favorites") {
-      updateFavorites();
-    }
-  }, [page, triggerUpdateFavorites]);
+    // if (page.name == "favorites") {
+    updateFavorites();
+    // }
+  }, [page, favorites]);
 
   return (
     <div className="flex h-full w-full flex-col">
@@ -94,16 +100,23 @@ export const Browser = () => {
       />
       <div className="flex h-full w-full flex-row">
         <BrowserSelections
+          key={
+            favorites && favorites.length > 0 ? favorites[0].name : 0
+          }
           selection={selection}
           setSelection={setSelection}
           page={page}
           snippets={snippets}
+          favorites={favorites}
+          setFavorites={setFavorites}
         />
         <BrowserDisplay
           selection={selection}
           page={page}
           favorites={favorites}
-          setTriggerUpdateFavorites={setTriggerUpdateFavorites}
+          snippets={snippets}
+          setSnippets={setSnippets}
+          setFavorites={setFavorites}
         />
       </div>
       <Footer />
