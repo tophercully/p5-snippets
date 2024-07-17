@@ -1,3 +1,10 @@
-A simple database interface for code snippets to use in generative art and procedural design.
+# Update! 
+## This app has become Snippp, a publicly accessible store for snippets and code organization. 
 
-https://snippets-js.vercel.app/
+- https://snippp.io
+
+- https://github.com/tophercully/snippp
+
+
+
+
