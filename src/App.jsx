@@ -16,6 +16,11 @@ function App() {
     <>
     <div className='app-container'>
       <h1 className='title'>SNIPPETS FOR ART</h1>
+      <div className='news-div'>
+
+      <span className='news' >Update! Snippets for Art has been expanded to{' '}<a href='https://snippp.io'>Snippp.io</a></span>
+      <span >Create your own toolkits, find snippets and toolkits from a variety of creative coders and other developers!</span>
+      </div>
       <Nav page={page} setPage={setPage} setSelection={setSelection}/>
       <div className='main-body'>
         <Selections selection={selection} setSelection={setSelection} page={page}/>

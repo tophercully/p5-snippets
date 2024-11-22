@@ -23,6 +23,32 @@
   align-items: center;
 }
 
+.news-div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  padding: 1rem;
+  margin-block: 2rem;
+  border: 1px #ff0000 solid;
+  border
+}
+.news {
+  color: red;
+  text-align: left;
+}
+.news a {
+  color: #000;
+  text-decoration: underline;
+}
+.news a:hover {
+  color: #000;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 @media (orientation: landscape) {
   .main-body{
     width:100%;
